@@ -1,32 +1,22 @@
 import Image from "next/image";
+import { IService } from "../../@types/generated/contentful";
 
 interface ServiceCardProps {
-  img: string;
-  title: string;
-  text: string;
-  color: string;
+  service: IService;
 }
 
-const ServiceCard = ({ img, text, title, color }: ServiceCardProps) => {
+const ServiceCard = ({ service }: ServiceCardProps) => {
+  const { name, slug, logo, description } = service.fields;
+
+  const url = logo.fields.file.url;
   return (
-    <div className="bg-white w-80 h-80 flex justify-center space-y-2 items-center flex-col rounded-2xl p-10 ">
-      <div
-        className={`bg-${color} p-6 rounded-lg flex  justify-center items-center`}
-      >
-        <Image
-          src={img}
-          sizes=""
-          priority
-          className=""
-          width={"50"}
-          height={"50"}
-        />
+    <div className="flex flex-col justify-around h-full gap-4">
+      <div className="bg-white w-20 h-20 rounded-full text-center items-center flex justify-center">
+        <Image src={`https:${url}`} width={50} height={50} alt={`${name}`} />
       </div>
+      <div className="text-2xl font-bold">{name}</div>
       <div>
-        <p className={`text-${color}`}>{title}</p>
-      </div>
-      <div>
-        <p className={`text-center text-sm text-black`}>{text}</p>
+        <span>{description}</span>
       </div>
     </div>
   );

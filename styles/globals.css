@@ -16,3 +16,7 @@ body {
     src: local("BroLink"), url("./fonts/Brolink-Regular.ttf") format("truetype");
   }
 }
+
+.hero {
+  background-size: 50% auto;
+}

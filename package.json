@@ -8,7 +8,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@svgr/webpack": "^5.5.0",
     "autoprefixer": "^10.4.0",
+    "contentful": "^9.1.4",
     "next": "12.0.2",
     "postcss": "^8.3.11",
     "react": "17.0.2",

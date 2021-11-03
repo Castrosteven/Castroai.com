@@ -31,7 +31,7 @@ const Home: NextPage<{ items: IService[] }> = ({ items }) => {
   console.log(items);
 
   return (
-    <div>
+    <div className="py-14">
       <Head>
         <title>Castro AI LLC</title>
         <meta name="description" content="Custom Web Application Development" />
@@ -91,7 +91,7 @@ const Home: NextPage<{ items: IService[] }> = ({ items }) => {
           <div className="text-center font-medium pt-5">
             With a lot of great services, we guarantee simplicity and clarity.
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 justify-center p-10">
+          <div className="container grid grid-cols-1 md:grid-cols-2 gap-20 justify-center p-10">
             {items.map((item, index) => {
               return <ServiceCard key={index} service={item} />;
             })}

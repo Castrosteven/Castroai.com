@@ -17,6 +17,10 @@ module.exports = {
         darkRed:'#A02B4F'
       },
     },
+    container:{
+      center:true,
+      padding:"1rem"
+    }
   },
 
   variants: {

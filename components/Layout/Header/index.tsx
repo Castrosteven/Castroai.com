@@ -7,12 +7,14 @@ import Button from "../../Button";
 
 const Header = ({ navbarOpen }: { navbarOpen: boolean }) => {
   return (
-    <div className="flex flex-row justify-between p-2 fixed bg-white w-full h-14 shadow-lg z-50">
-      <div className="flex flex-row items-center justify-start">
-        <Logo />
-        <Brand />
+    <div className="flex flex-row justify-between p-2 fixed top-0 bg-white w-full h-14 shadow-lg z-50 inset-x-0">
+      <div className="flex flex-row items-center justify-between container">
+        <div className="flex items-center">
+          <Logo />
+          <Brand />
+        </div>
+        <NavBar />
       </div>
-      {/* Nav */}
     </div>
   );
 };

@@ -38,7 +38,7 @@ const Home: NextPage<{ items: IService[] }> = ({ items }) => {
       <Layout>
         <section className="">
           {/* Main Hero Section */}
-          <div className="container md:flex ">
+          <div className="container md:flex md:justify-around ">
             {/* Text & Buttons */}
             <div className="md:w-1/2 md:flex md:flex-col md:justify-center p-10  ">
               {/* MAIN TEXT */}
@@ -56,14 +56,14 @@ const Home: NextPage<{ items: IService[] }> = ({ items }) => {
               </div>
             </div>
             {/* Image */}
-            <div className="md:w-1/2 self-end">
+            <div className="md:w-1/2 lg:w-1/4 self-end">
               <People />
             </div>
           </div>
         </section>
         {/* About Us Section */}
         <section className="bg-darkBlue text-white">
-          <div className="container pt-10 pb-10 md:flex">
+          <div className="container pt-10 pb-10 md:flex md:justify-around">
             {/* Text Section */}
             <div className="text-left p-2 md:w-1/2 ">
               <p className="text-2xl pb-7">
@@ -79,7 +79,7 @@ const Home: NextPage<{ items: IService[] }> = ({ items }) => {
               </div>
             </div>
             {/* Image Container */}
-            <div className="flex items-center md:w-1/2  ">
+            <div className="flex items-center md:w-1/2 lg:w-1/4  ">
               <Image src={Teamwork} alt="" className="rounded-lg" />
             </div>
           </div>

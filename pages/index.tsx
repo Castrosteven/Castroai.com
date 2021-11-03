@@ -40,8 +40,8 @@ const Home: NextPage<{ items: IService[] }> = ({ items }) => {
       <Layout>
         <section
           className="
-          h-4/5 bg-white flex flex-col pt-20 p-6 justify-around
-          md:flex-row md:h-1/2 md:items-center md:p-12
+          bg-white flex flex-col pt-20 p-6 justify-around
+          md:flex-row md:items-center md:p-12
           lg:pr-60 lg:pl-60
          "
         >
@@ -65,7 +65,7 @@ const Home: NextPage<{ items: IService[] }> = ({ items }) => {
             <People />
           </div>
         </section>
-        <section className="h-3/4 md:h-1/2 md:w-full bg-darkBlue text-white p-6 md:p-12 lg:pl-60 lg:pr-60 md:flex-row md:flex  md:items-center lg:justify-around  ">
+        <section className=" md:w-full bg-darkBlue text-white p-6 md:p-12 lg:pl-60 lg:pr-60 md:flex-row md:flex  md:items-center lg:justify-around  ">
           <div className="text-left md:w-1/2 md:flex md:flex-col md:justify-around p-2 lg:w-2/5 ">
             <p className="text-2xl pb-7">
               About <span className="font-BroLink ">castroai</span>

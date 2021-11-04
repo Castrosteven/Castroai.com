@@ -4,7 +4,7 @@ import Header from "./Header";
 const Layout: FC = ({ children }) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   return (
-    <div className="">
+    <div className="h-screen">
       <Header navbarOpen={navbarOpen} />
       {children}
     </div>

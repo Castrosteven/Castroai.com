@@ -36,7 +36,7 @@ const Home: NextPage<{ items: IService[] }> = ({ items }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <section className="">
+        <section className=" pl-5 pr-5 flex justify-center items-center">
           {/* Main Hero Section */}
           <div className="container md:flex md:justify-around ">
             {/* Text & Buttons */}
@@ -52,17 +52,17 @@ const Home: NextPage<{ items: IService[] }> = ({ items }) => {
               </p>
               {/* button */}
               <div className="text-left">
-                <Button className="w-1/2 mt-4">See our work</Button>
+                <Button className="w-1/2 mt-4">Contact us</Button>
               </div>
             </div>
             {/* Image */}
-            <div className="md:w-1/2 lg:w-1/4 self-end">
+            <div className=" flex flex-col justify-end">
               <People />
             </div>
           </div>
         </section>
         {/* About Us Section */}
-        <section className="bg-darkBlue text-white">
+        <section className="bg-darkBlue text-white p-5 flex justify-center items-center">
           <div className="container pt-10 pb-10 md:flex md:justify-around">
             {/* Text Section */}
             <div className="text-left p-2 md:w-1/2 ">
@@ -79,14 +79,14 @@ const Home: NextPage<{ items: IService[] }> = ({ items }) => {
               </div>
             </div>
             {/* Image Container */}
-            <div className="flex items-center md:w-1/2 lg:w-1/4  ">
+            <div className="flex items-end md:w-1/2 lg:w-1/4  ">
               <Image src={Teamwork} alt="" className="rounded-lg" />
             </div>
           </div>
         </section>
         {/* Services Section */}
-        <section className="bg-lightBlue ">
-          <div className="container pt-10 pb-10">
+        <section className="bg-lightBlue p-5 flex justify-center items-center">
+          <div className="container pt-10 pb-10  ">
             {/* Large Text */}
             <div className="font-black text-3xl text-center">
               Software Development Services

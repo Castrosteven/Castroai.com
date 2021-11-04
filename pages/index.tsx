@@ -36,7 +36,7 @@ const Home: NextPage<{ items: IService[] }> = ({ items }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <section className=" pl-5 pr-5 flex justify-center items-center">
+        <section className=" pl-5 pr-5 flex justify-center items-center pt-12 ">
           {/* Main Hero Section */}
           <div className="container md:flex md:justify-around ">
             {/* Text & Buttons */}

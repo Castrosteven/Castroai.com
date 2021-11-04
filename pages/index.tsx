@@ -56,7 +56,7 @@ const Home: NextPage<{ items: IService[] }> = ({ items }) => {
               </div>
             </div>
             {/* Image */}
-            <div className=" flex flex-col justify-end">
+            <div className=" flex flex-col justify-end md:w-full ">
               <People />
             </div>
           </div>

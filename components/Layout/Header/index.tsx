@@ -2,7 +2,7 @@ import Image from "next/image";
 import NavBar from "../../NavBar";
 import Logo from "../../../assets/logo.svg";
 import Brand from "../../../assets/brand.svg";
-import Hamburger from "../Header/Hamburger.svg";
+import Hamburger from "../Header/hamburger.svg";
 
 import Button from "../../Button";
 import { useState } from "react";

@@ -36,7 +36,41 @@ export interface IService extends Entry<IServiceFields> {
   };
 }
 
-export type CONTENT_TYPE = "service";
+export interface ITeamMemberFields {
+  /** picture */
+  picture: Asset;
+
+  /** Name */
+  name: string;
+
+  /** Title */
+  title: string;
+
+  /** Description */
+  description: string;
+
+  /** Link */
+  link: string;
+}
+
+export interface ITeamMember extends Entry<ITeamMemberFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "teamMember";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export type CONTENT_TYPE = "service" | "teamMember";
 
 export type LOCALE_CODE = "en-US";
 

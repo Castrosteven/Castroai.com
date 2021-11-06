@@ -14,9 +14,14 @@ body {
     font-family: "BroLink";
     font-weight: normal;
     src: local("BroLink"), url("./fonts/Brolink-Regular.ttf") format("truetype");
+    font-display: swap;
   }
 }
 
 .hero {
-  background-size: 50% auto;
+  background: rgb(0, 0, 0);
+}
+
+.brand {
+  line-height: 0.7;
 }

@@ -1,9 +1,8 @@
 import Image from "next/image";
-import NavBar from "../../NavBar";
+
 import Logo from "../../../assets/logo.svg";
 import Brand from "../../../assets/brand.svg";
 import Hamburger from "../Header/hamburger.svg";
-
 import Button from "../../Button";
 import { useState } from "react";
 
@@ -18,47 +17,33 @@ const Header = () => {
   ];
 
   return (
-    <nav className="fixed w-full x-30 top-0 bg-white text-black z-50">
-      <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
-        <div className="flex items-center pl-4">
-          <Logo />
-          {/* <div className="flex flex-col text-center">
-            <span className="font-BroLink">castroai</span>
+    <div className="h-20  fixed top-0 left-0 z-50 w-full bg-black">
+      <div className="container h-full mx-auto flex items-center justify-between p-5 md:p-0 text-white">
+        <div className="flex items-center">
+          <div className="bg-white p-1 rounded-full">
+            <Logo />
+          </div>
+          <div className="text-white flex flex-col items-center brand">
+            <span className="font-BroLink text-2xl ">castroai</span>
             <span className="text-xs">Software Development Company</span>
-          </div> */}
-          <Brand />
+          </div>
         </div>
-
-        <div className="pr-4 lg:hidden block">
-          <button onClick={() => setNavBarOpen((value) => !value)}>
-            <Hamburger />
-          </button>
-        </div>
-
-        <div
-          className={`${
-            navBarOpen ? "" : "hidden"
-          } w-full flex-grow lg:flex lg:items-center lg:w-auto mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20`}
-        >
-          <ul className="flex-1 justify-end items-center lg:flex ">
-            {menuItems.map((item) => {
-              return (
-                <li className="mr-3" key={item.name}>
-                  <a
-                    className="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                    href=""
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              );
-            })}
-
-            <Button>Call us</Button>
-          </ul>
-        </div>
+        <ul className="hidden md:flex  items-center space-x-6">
+          {menuItems.map((item, index) => {
+            const { name, path } = item;
+            return (
+              <li key={index}>
+                <a href={`${path}`}> {name} </a>
+              </li>
+            );
+          })}
+          <Button>Contact Us</Button>
+        </ul>
+        <button className="md:hidden ">
+          <Hamburger />
+        </button>
       </div>
-    </nav>
+    </div>
   );
 };
 export default Header;

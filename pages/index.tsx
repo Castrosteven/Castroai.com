@@ -10,6 +10,7 @@ import Image from "next/image";
 import { GetStaticProps } from "next";
 import { createClient } from "contentful";
 import Layout from "../components/Layout";
+import BrandImage from "../assets/brand_image.jpg";
 import {
   IService,
   ITeamMember,
@@ -44,13 +45,33 @@ interface props {
   services: IService[];
 }
 
+const desc = "CASTROAI | Custom Web Application Development";
+const pageTitle = "Castro AI LLC";
+const twitterHandle = "";
+const currentURL = "https://www.castroai.com";
+const previewImage = BrandImage;
 const Home: NextPage<props> = ({ teamMembers, services }) => {
   return (
     <div className="">
       <Head>
-        <title>Castro AI LLC</title>
-        <meta name="description" content="Custom Web Application Development" />
+        <title>{pageTitle}</title>
+        <meta name="description" content={desc} />
         <link rel="icon" href="/favicon.ico" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" key="twcard" />
+        <meta name="twitter:creator" content={twitterHandle} key="twhandle" />
+
+        {/* Open Graph */}
+        <meta property="og:url" content={currentURL} key="ogurl" />
+        <meta
+          property="og:image"
+          content={"../assets/brand_image.jpg"}
+          key="ogimage"
+        />
+        <meta property="og:site_name" content={pageTitle} key="ogsitename" />
+        <meta property="og:title" content={pageTitle} key="ogtitle" />
+        <meta property="og:description" content={desc} key="ogdesc" />
       </Head>
       <Layout>
         {/* Main hero section */}

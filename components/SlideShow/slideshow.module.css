@@ -52,14 +52,14 @@
 .awssld__container {
   display: block;
   width: 100%;
-  height: 0;
-  padding-bottom: var(--slider-height-percentage);
+  height: 100%;
+  /* padding-bottom: var(--slider-height-percentage); */
 }
-@media all and (max-width: 500px) {
+/* @media all and (max-width: 500px) {
   .awssld__container {
     padding-bottom: calc(var(--slider-height-percentage) * 1.25);
   }
-}
+} */
 .awssld__startUp {
   background-color: red;
   height: 100%;
@@ -78,10 +78,10 @@
   -ms-flex-pack: center;
   justify-content: center;
 }
-.awssld__startUp img {
+/* .awssld__startUp img {
   width: 35%;
   height: auto;
-}
+} */
 .awssld__content {
   background-color: var(--content-background-color);
   overflow: hidden;

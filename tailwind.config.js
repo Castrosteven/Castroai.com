@@ -16,6 +16,9 @@ module.exports = {
         CdarkGray: "#333333",
         CdarkRed:'#A02B4F'
       },
+      backgroundImage: {
+        'slide1': "url('/assets/brand_image.jpg')",
+      },
     },
     
   },

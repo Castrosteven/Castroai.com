@@ -49,7 +49,8 @@ const desc = "CASTROAI | Custom Web Application Development";
 const pageTitle = "Castro AI LLC";
 const twitterHandle = "";
 const currentURL = "https://www.castroai.com";
-const previewImage = BrandImage;
+const previewImage =
+  "https://images.ctfassets.net/t2fhl88kz6ha/4Riwo6PGRC2mEnd8ZzDxg3/bd11a6285887056d952ed4436dba32f5/pexels-thisisengineering-3861972.jpg";
 const Home: NextPage<props> = ({ teamMembers, services }) => {
   return (
     <div className="">
@@ -64,11 +65,7 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
 
         {/* Open Graph */}
         <meta property="og:url" content={currentURL} key="ogurl" />
-        <meta
-          property="og:image"
-          content={"../assets/brand_image.jpg"}
-          key="ogimage"
-        />
+        <meta property="og:image" content={previewImage} key="ogimage" />
         <meta property="og:site_name" content={pageTitle} key="ogsitename" />
         <meta property="og:title" content={pageTitle} key="ogtitle" />
         <meta property="og:description" content={desc} key="ogdesc" />

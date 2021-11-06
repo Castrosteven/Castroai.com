@@ -1,1 +1,1 @@
-declare module "react-awesome-slider/dist/captioned";
+declare module "react-awesome-slider/dist/";

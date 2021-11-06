@@ -68,19 +68,8 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
       <Layout>
         {/* Main hero section */}
 
-        <section className="h-3/4 flex items-center ">
+        <section className="h-1/2 flex items-center ">
           <SlideShow />
-
-          {/* <div className="text-white text-left container mx-auto p-5 flex flex-col space-y-10 ">
-            <p className="text-3xl font-semibold">
-              ENTERPRISE SOFTWARE <br />
-              DEVELOPMENT
-            </p>
-            <p>
-              Let our team of Certified Engineers and Designers be on your team.
-            </p>
-            <Button className="w-3/4 md:w-1/4">Read our case studies</Button>
-          </div> */}
         </section>
         {/* About */}
         <section className="bg-white h-3/4 pt-16">

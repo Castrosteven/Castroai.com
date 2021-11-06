@@ -1,5 +1,6 @@
 import AwesomeSlider from "react-awesome-slider";
-import "react-awesome-slider/dist/styles.css";
+// import "react-awesome-slider/dist/styles.css";
+import styles from "./slideshow.module.css";
 
 const images = [
   "/assets/brand_image.jpg",
@@ -9,7 +10,7 @@ const images = [
 
 const SlideShow = () => {
   return (
-    <AwesomeSlider>
+    <AwesomeSlider cssModule={styles} fillParent={true}>
       <div>1</div>
       <div>2</div>
       <div>3</div>

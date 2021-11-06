@@ -17,7 +17,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="h-20  fixed top-0 left-0 z-50 w-full bg-black">
+    <div className="h-20  fixed top-0 left-0 z-50 w-full ">
       <div className="container h-full mx-auto flex items-center justify-between p-5 md:p-0 text-white">
         <div className="flex items-center">
           <div className="bg-white p-1 rounded-full">

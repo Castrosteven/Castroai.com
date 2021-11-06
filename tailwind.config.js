@@ -7,16 +7,17 @@ module.exports = {
         BroLink: ["BroLink"],
       },
       colors: {
-        darkOrange: "#CE4912",
-        orange: "#FF9D0A",
-        darkBlue: "#042C71",
-        blue: "#084387",
-        lightBlue: "#29ABE2",
-        gray: "#B3B3B3",
-        darkGray: "#333333",
-        darkRed:'#A02B4F'
+        CdarkOrange: "#CE4912",
+        Corange: "#FF9D0A",
+        CdarkBlue: "#042C71",
+        Cblue: "#084387",
+        ClightBlue: "#29ABE2",
+        Cgray: "#B3B3B3",
+        CdarkGray: "#333333",
+        CdarkRed:'#A02B4F'
       },
     },
+    
   },
 
   variants: {

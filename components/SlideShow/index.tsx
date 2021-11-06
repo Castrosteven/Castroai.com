@@ -11,7 +11,7 @@ const SlideShow = () => {
   return (
     <AwesomeSlider fillParent={true}>
       {images.map((img, key) => {
-        return <div key={key} data-src="/assets/brand_image.jpg" />;
+        return <div key={key} data-src={img} />;
       })}
     </AwesomeSlider>
   );

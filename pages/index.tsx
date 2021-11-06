@@ -1,23 +1,18 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
-import People from "../assets/landing/people.svg";
-import Teamwork from "../assets/landing/teamwork.jpg";
+
 import Button from "../components/Button";
-import BackgroundImage from "../assets/pexels-startup-stock-photos-7096.jpg";
-import Image from "next/image";
+
 //
 import { GetStaticProps } from "next";
 import { createClient } from "contentful";
 import Layout from "../components/Layout";
-import BrandImage from "../assets/brand_image.jpg";
-import {
-  IService,
-  ITeamMember,
-  CONTENT_TYPE,
-} from "../@types/generated/contentful";
+
+import { IService, ITeamMember } from "../@types/generated/contentful";
 import ServiceCard from "../components/ServiceCard";
 import TeamMemberCard from "../components/TeamMemberCard";
+import SlideShow from "../components/SlideShow";
 export const getStaticProps: GetStaticProps = async () => {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID!,
@@ -72,17 +67,9 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
       </Head>
       <Layout>
         {/* Main hero section */}
-        <section className="hero h-3/4 flex items-center ">
-          <div className="text-white text-left container mx-auto p-5 flex flex-col space-y-10 ">
-            <p className="text-3xl font-semibold">
-              ENTERPRISE SOFTWARE <br />
-              DEVELOPMENT
-            </p>
-            <p>
-              Let our team of Certified Engineers and Designers be on your team.
-            </p>
-            <Button className="w-3/4 md:w-1/4">Read our case studies</Button>
-          </div>
+
+        <section className="h-1/2 flex items-center ">
+          <SlideShow />
         </section>
         {/* About */}
         <section className="bg-white h-3/4 pt-16">

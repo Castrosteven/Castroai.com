@@ -1,18 +1,17 @@
 import React from "react";
 import styles from "./Navbar.module.css";
 import Image from "next/image";
-
 import Logo from "../../assets/logo.svg";
-import Brand from "../../assets/brand.svg";
 import Hamburger from "./hamburger.svg";
 import Button from "../Button";
 import { useState } from "react";
+import Link from "next/link";
 
 const menuItems = [
   { name: "Projects", path: "", logo: "" },
   { name: "About us", path: "#about", logo: "" },
   { name: "Services", path: "#services", logo: "" },
-  { name: "Blog", path: "", logo: "" },
+  { name: "Blog", path: "/blog", logo: "" },
 ];
 
 class Navbar extends React.Component {
@@ -27,7 +26,7 @@ class Navbar extends React.Component {
     window.removeEventListener("scroll", this.handleScroll);
   }
   handleScroll = () => {
-    if (window.scrollY > 100) {
+    if (window.scrollY > 400) {
       if (!this.state.nav) {
         this.setState({ nav: true });
       }
@@ -42,8 +41,10 @@ class Navbar extends React.Component {
     return (
       <div
         className={`${
-          this.state.nav ? "fixed bg-black " : "fixed "
-        } h-20   top-0 left-0 z-50 w-full`}
+          this.state.nav
+            ? "fixed bg-black transition duration-500 ease-in-out "
+            : "absolute bg-transparent "
+        } h-20 top-0 left-0 z-50 w-full`}
       >
         <div className="container h-full mx-auto flex items-center justify-between p-5 md:p-0 text-white">
           <div className="flex items-center">
@@ -60,7 +61,9 @@ class Navbar extends React.Component {
               const { name, path } = item;
               return (
                 <li key={index}>
-                  <a href={`${path}`}> {name} </a>
+                  <Link href={`${path}`}>
+                    <a>{name}</a>
+                  </Link>
                 </li>
               );
             })}

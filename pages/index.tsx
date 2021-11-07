@@ -113,8 +113,8 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
             </div>
           </div>
         </section>
-        <section id="contact pb-16 pt-16">
-          <div className="container mx-auto flex justify-center items-center ">
+        <section id="contact pb-16 pt-16 w-full">
+          <div className="container mx-auto p-5 w-full ">
             <ContactUsForm />
           </div>
         </section>

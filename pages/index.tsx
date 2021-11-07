@@ -13,6 +13,7 @@ import { IService, ITeamMember } from "../@types/generated/contentful";
 import ServiceCard from "../components/ServiceCard";
 import TeamMemberCard from "../components/TeamMemberCard";
 import SlideShow from "../components/SlideShow";
+import ContactUsForm from "../components/ContactUsForm";
 export const getStaticProps: GetStaticProps = async () => {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID!,
@@ -108,6 +109,11 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
                 return <ServiceCard key={index} service={service} />;
               })}
             </div>
+          </div>
+        </section>
+        <section id="contact pb-16 pt-16">
+          <div className="container mx-auto flex justify-center items-center ">
+            <ContactUsForm />
           </div>
         </section>
       </Layout>

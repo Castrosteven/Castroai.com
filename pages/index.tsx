@@ -68,7 +68,7 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
       <Layout>
         {/* Main hero section */}
 
-        <section className="h-1/2 flex items-center ">
+        <section className="h-3/4 md:h1/2 flex items-center ">
           <SlideShow />
         </section>
         {/* About */}

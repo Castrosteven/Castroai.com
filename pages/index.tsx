@@ -69,9 +69,7 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
       <Layout>
         {/* Main hero section */}
 
-
-        <section className=" h-full md:h-1/2 flex items-center ">
-
+        <section className=" h-3/4 md:h-1/2 flex items-center ">
           <SlideShow />
         </section>
         {/* About */}
@@ -102,7 +100,7 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
             </div>
           </div>
         </section>
-        <section className="bg-gray-100 pb-16 pt-16" id="services">
+        <section className=" bg-gray-100 pb-16 pt-16" id="services">
           <div className="container  text-center p-5 md:p-0 flex flex-col mx-auto">
             <p className="text-2xl font-medium">SERVICES</p>
 
@@ -113,8 +111,8 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
             </div>
           </div>
         </section>
-        <section id="contact pb-16 pt-16 w-full">
-          <div className="container mx-auto p-5 w-full ">
+        <section id="contact " className="  bg-gray-400 ">
+          <div className="container mx-auto p-5 flex justify-center items-center h-full  ">
             <ContactUsForm />
           </div>
         </section>

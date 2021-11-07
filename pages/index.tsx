@@ -68,11 +68,14 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
       <Layout>
         {/* Main hero section */}
 
-        <section className="h-3/4 md:h-1/2 flex items-center ">
+        <section className=" h-full md:h-1/2 flex items-center ">
           <SlideShow />
         </section>
         {/* About */}
-        <section className="bg-white pb-16 pt-16" id="about">
+        <section
+          className=" bg-white pb-16 pt-16 flex flex-col justify-around items-center "
+          id="about"
+        >
           <div className="container p-5 md:p-0 flex mx-auto ">
             <div className="text-center pl:20 pr:20  space-y-10">
               <p className="text-2xl font-medium">WHO WE ARE</p>
@@ -88,7 +91,7 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
             </div>
             {/*  */}
           </div>
-          <div className="container mx-auto p-5 ">
+          <div className="container   mx-auto p-5 ">
             <div className=" grid md:grid-cols-3 gap-4 items-center">
               {teamMembers.map((member, index) => {
                 return <TeamMemberCard key={index} member={member} />;
@@ -96,7 +99,7 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
             </div>
           </div>
         </section>
-        <section className="bg-gray-100  pb-16 pt-16" id="services">
+        <section className="bg-gray-100 pb-16 pt-16" id="services">
           <div className="container  text-center p-5 md:p-0 flex flex-col mx-auto">
             <p className="text-2xl font-medium">SERVICES</p>
 

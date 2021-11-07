@@ -42,7 +42,7 @@ class Navbar extends React.Component {
       <div
         className={`${
           this.state.nav
-            ? "fixed bg-black transition duration-500 ease-in-out "
+            ? "fixed bg-gray-800 transition duration-500 ease-in-out "
             : "absolute bg-transparent "
         } h-20 top-0 left-0 z-50 w-full`}
       >

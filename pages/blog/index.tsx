@@ -5,7 +5,12 @@ import Layout from "../../components/Layout";
 const Blog: NextPage = () => {
   return (
     <Layout>
-      <div className="pt-20 p-6">BLOG PAGE</div>
+      <div>
+        <div className="pt-20 bg-gray-800"></div>
+        <div className="container mx-auto">
+          <h1>HELLO I AM A BLOG PAGE</h1>
+        </div>
+      </div>
     </Layout>
   );
 };

@@ -1,12 +1,13 @@
 import { FC, useState } from "react";
-import Header from "./Header";
+import Footer from "../Footer";
+import Navbar from "../NavBar";
 
 const Layout: FC = ({ children }) => {
-  const [navbarOpen, setNavbarOpen] = useState(false);
   return (
-    <div className="h-screen">
-      <Header />
+    <div className="h-screen ">
+      <Navbar />
       {children}
+      <Footer />
     </div>
   );
 };

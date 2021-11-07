@@ -10,13 +10,13 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
 
   const url = logo.fields.file.url;
   return (
-    <div className="flex flex-col justify-around h-full gap-4 rounded-lg">
-      <div className="bg-white w-20 h-20 rounded-full text-center items-center flex justify-center">
+    <div className="bg-white rounded-lg h-full p-14 flex flex-col justify-betwen space-y-4 ">
+      <div className="">
         <Image src={`https:${url}`} width={50} height={50} alt={`${name}`} />
       </div>
-      <div className="text-2xl font-bold">{name}</div>
+      <div className="font-medium">{name}</div>
       <div>
-        <span>{description}</span>
+        <span className="font-light">{description}</span>
       </div>
     </div>
   );

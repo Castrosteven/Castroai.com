@@ -1,12 +1,35 @@
+import { useState } from "react";
+
 const ContactUsForm = () => {
+  const initialState = {
+    name: "",
+    phone: "",
+    company: "",
+    message: "",
+    email: "",
+  };
+
+  type formType = typeof initialState;
+
+  const [form, setForm] = useState<formType>(initialState);
+
   const formHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+  };
+
+  const inputHandler = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const name = e.target.name;
+    let newState = { ...form };
+    newState[`${name}`] = e.target.value;
+    setForm(newState);
   };
 
   return (
     <form
       action=""
-      className="bg-white p-5 rounded-lg md:w-3/4"
+      className="bg-white p-5 rounded-lg md:w-1/2"
       onSubmit={(e) => formHandler(e)}
     >
       <div className="md:flex md:space-x-4">
@@ -16,10 +39,13 @@ const ContactUsForm = () => {
           </label>{" "}
           <br />
           <input
+            value={form.name}
+            name="name"
             required
             type="text"
             placeholder="John Doe"
             className="border-2  rounded-lg text-black  w-full  p-2"
+            onChange={(e) => inputHandler(e)}
           />
         </div>
         <div className="md:w-1/2">
@@ -28,6 +54,9 @@ const ContactUsForm = () => {
           </label>{" "}
           <br />
           <input
+            onChange={(e) => inputHandler(e)}
+            value={form.email}
+            name="email"
             required
             type="email"
             placeholder="you@example.com"
@@ -42,6 +71,9 @@ const ContactUsForm = () => {
           </label>{" "}
           <br />
           <input
+            onChange={(e) => inputHandler(e)}
+            value={form.company}
+            name="company"
             required
             type="text"
             placeholder="Company name"
@@ -54,6 +86,9 @@ const ContactUsForm = () => {
           </label>{" "}
           <br />
           <input
+            onChange={(e) => inputHandler(e)}
+            value={form.phone}
+            name="phone"
             required
             type="phone"
             placeholder="Phone number"
@@ -67,6 +102,8 @@ const ContactUsForm = () => {
         </label>{" "}
         <br />
         <textarea
+          onChange={(e) => inputHandler(e)}
+          value={form.message}
           name="message"
           id="message"
           cols={23}
@@ -76,15 +113,18 @@ const ContactUsForm = () => {
           className=" rounded-lg border-2 p-2 w-full"
         ></textarea>
       </div>
-      <div className="p-2">
+      <div className="p-2 text-center">
         <span className="text-xs text-center">
-          We will receive this email to our inbox, and will NOT send you any
-          spam or disclose it with any third parties.
+          We will receive this email directly to our inbox, and will NOT send
+          you any spam or disclose it with any third parties.
         </span>
       </div>
       <div>
         <div className="text-center">
-          <button className="bg-gray-600 p-2 rounded-lg text-white text-center hover:bg-gray-200 hover:text-gray-800">
+          <button
+            type="submit"
+            className="bg-gray-600 p-2 rounded-lg text-white text-center hover:bg-gray-200 hover:text-gray-800"
+          >
             Send Email
           </button>
         </div>

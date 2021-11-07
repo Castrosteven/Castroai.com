@@ -8,7 +8,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 const menuItems = [
-  { name: "Projects", path: "", logo: "" },
+  // { name: "Projects", path: "#", logo: "" },
   { name: "About us", path: "#about", logo: "" },
   { name: "Services", path: "#services", logo: "" },
   { name: "Blog", path: "/blog", logo: "" },
@@ -67,7 +67,11 @@ class Navbar extends React.Component {
                 </li>
               );
             })}
-            <Button>Contact Us</Button>
+            <Button>
+              <Link href={"#contact"} passHref>
+                Contact us
+              </Link>
+            </Button>
           </ul>
           <button className="md:hidden ">
             <Hamburger />

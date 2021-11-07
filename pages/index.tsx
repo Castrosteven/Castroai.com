@@ -111,8 +111,11 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
             </div>
           </div>
         </section>
-        <section id="contact " className="  bg-gray-400 ">
-          <div className="container mx-auto p-5 flex justify-center items-center h-full  ">
+        <section id="contact" className="  bg-gray-400 ">
+          <div className="container mx-auto p-5 pb-10 flex flex-col justify-center items-center h-full  ">
+            <div className="p-5">
+              <p className="text-2xl "> 👋 Say Hello</p>
+            </div>
             <ContactUsForm />
           </div>
         </section>

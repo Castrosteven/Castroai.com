@@ -77,11 +77,11 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
           className=" bg-white pb-16 pt-16 flex flex-col justify-around items-center "
           id="about"
         >
-          <div className="container p-5 md:p-0 flex mx-auto ">
+          <div className="container p-5  flex mx-auto ">
             <div className="text-center pl:20 pr:20  space-y-10">
               <p className="text-2xl font-medium">WHO WE ARE</p>
               <p className="font-light leading-loose text-1xl text-darkGray ">
-                <span className="font-BroLink text-black ">castroai</span> was
+                <span className="font-BroLink text-black ">castroai LLC</span> was
                 founded in 2021 in the state of New York. We are a team of
                 certified engenieers & designers with years of experience all
                 working towards the same goal. To deliver you and your business
@@ -101,7 +101,7 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
           </div>
         </section>
         <section className=" bg-gray-100 pb-16 pt-16" id="services">
-          <div className="container  text-center p-5 md:p-0 flex flex-col mx-auto">
+          <div className="container  text-center p-5  flex flex-col mx-auto">
             <p className="text-2xl font-medium">SERVICES</p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 items-center pt-16 ">

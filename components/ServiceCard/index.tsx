@@ -14,9 +14,9 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
       <div className="">
         <Image src={`https:${url}`} width={50} height={50} alt={`${name}`} />
       </div>
-      <div className="font-medium">{name}</div>
+      <div style={{fontSize:15}} className="font-bold">{name.toUpperCase()}</div>
       <div>
-        <span className="font-light">{description}</span>
+        <span style={{fontSize:13}} >{description}</span>
       </div>
     </div>
   );

@@ -9,9 +9,9 @@ import Link from "next/link";
 
 const menuItems = [
   // { name: "Projects", path: "#", logo: "" },
-  { name: "About us", path: "#about", logo: "" },
-  { name: "Services", path: "#services", logo: "" },
-  { name: "Blog", path: "/blog", logo: "" },
+  { name: "ABOUT US", path: "#about", logo: "" },
+  { name: "SERVICES", path: "#services", logo: "" },
+  { name: "BLOG", path: "/blog", logo: "" },
 ];
 
 class Navbar extends React.Component {
@@ -68,11 +68,12 @@ class Navbar extends React.Component {
                 </li>
               );
             })}
-            <Button>
               <Link href={"#contact"} passHref>
-                Contact us
-              </Link>
+            <Button>
+                CONTACT US
             </Button>
+            </Link>
+
           </ul>
           <button className="md:hidden ">
             <Hamburger />

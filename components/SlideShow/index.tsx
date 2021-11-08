@@ -23,7 +23,7 @@ const SlideShow = () => {
                 ENTERPRISE SOFTWARE <br />
                 DEVELOPMENT
               </p>
-              <p>
+              <p style={{fontSize:18}} >
                 Let our team of Certified Engineers and Designers be on your
                 team.
               </p>
@@ -41,7 +41,7 @@ const SlideShow = () => {
                 <br />
                 DEVELOPMENT
               </p>
-              <p>One Codebase for IOS, Android & Windows</p>
+              <p style={{fontSize:18}} >One Codebase for IOS, Android & Windows</p>
               <Button className="w-3/4 md:w-1/4">See our App Portfolio</Button>
             </div>
           </div>

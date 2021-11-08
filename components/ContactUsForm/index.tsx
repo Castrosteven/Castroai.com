@@ -40,7 +40,7 @@ const ContactUsForm = () => {
   return (
     <form
       action=""
-      className="bg-white p-5 rounded-lg md:w-1/2"
+      className="bg-white p-5 rounded-lg "
       onSubmit={(e) => formHandler(e)}
     >
       <div className="md:flex md:space-x-4">

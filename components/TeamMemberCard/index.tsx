@@ -4,7 +4,7 @@ const TeamMemberCard = ({ member }: { member: ITeamMember }) => {
   const { description, link, name, picture, title } = member.fields;
   const { fields } = picture;
   return (
-    <div className=" lg:w-3/4  h-full flex flex-col justify-center items-center p-5 bg-gray-100 rounded-lg gap-2 ">
+    <div className="  h-full flex flex-col justify-center items-center p-5 bg-gray-100 rounded-lg gap-2 ">
       <Image
         src={`https:${fields.file.url}`}
         alt={""}

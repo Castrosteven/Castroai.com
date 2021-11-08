@@ -51,8 +51,8 @@ class Navbar extends React.Component {
           <div className="flex items-center">
           <Logo />
             <div className="text-white flex flex-col items-center brand">
-              <span className="font-BroLink text-2xl ">castroai</span>
-              <span className="text-xs">Software Development Company</span>
+              <span style={{fontSize:22,lineHeight:1.2}} className="font-BroLink ">castro ai</span>
+              <span  style={{fontSize:12}} className="">Software Development Company</span>
             </div>
           </div>
           </Link>

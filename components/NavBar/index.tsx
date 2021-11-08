@@ -46,7 +46,7 @@ class Navbar extends React.Component {
             : "absolute bg-transparent "
         } h-20 top-0 left-0 z-50 w-full`}
       >
-        <div className="container h-full mx-auto flex items-center justify-between p-5 md:p-0 text-white">
+        <div className="container h-full mx-auto flex items-center justify-between p-5  text-white">
           <div className="flex items-center">
             <div className="bg-white p-1 rounded-full">
               <Logo />

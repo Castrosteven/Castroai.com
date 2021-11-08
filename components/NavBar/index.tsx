@@ -47,14 +47,21 @@ class Navbar extends React.Component {
         } h-20 top-0 left-0 z-50 w-full`}
       >
         <div className="container h-full mx-auto flex items-center justify-between p-5  text-white">
-        <Link href='/' >
-          <div className="flex items-center">
-          <Logo />
-            <div className="text-white flex flex-col items-center brand">
-              <span style={{fontSize:22,lineHeight:1.2}} className="font-BroLink ">castro ai</span>
-              <span  style={{fontSize:12}} className="">Software Development Company</span>
+          <Link href="/" passHref>
+            <div className="flex items-center  ">
+              <Logo />
+              <div className="text-white flex flex-col items-center brand">
+                <span
+                  style={{ fontSize: 22, lineHeight: 1.2 }}
+                  className="font-BroLink"
+                >
+                  castro ai
+                </span>
+                <span style={{ fontSize: 12 }} className="">
+                  Software Development Company
+                </span>
+              </div>
             </div>
-          </div>
           </Link>
 
           <ul className="hidden md:flex  items-center space-x-6">
@@ -68,12 +75,9 @@ class Navbar extends React.Component {
                 </li>
               );
             })}
-              <Link href={"#contact"} passHref>
-            <Button>
-                CONTACT US
-            </Button>
+            <Link href={"#contact"} passHref>
+              <Button>CONTACT US</Button>
             </Link>
-
           </ul>
           <button className="md:hidden ">
             <Hamburger />

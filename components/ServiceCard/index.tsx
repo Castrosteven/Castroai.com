@@ -10,13 +10,15 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
 
   const url = logo.fields.file.url;
   return (
-    <div className="bg-white rounded-lg h-full p-14 flex flex-col justify-betwen space-y-4 ">
+    <div className="bg-white rounded-lg h-full p-14 flex flex-col justify-betwen space-y-4 hover:shadow-lg ">
       <div className="">
         <Image src={`https:${url}`} width={50} height={50} alt={`${name}`} />
       </div>
-      <div style={{fontSize:15}} className="font-bold">{name.toUpperCase()}</div>
+      <div style={{ fontSize: 15 }} className="font-bold">
+        {name.toUpperCase()}
+      </div>
       <div>
-        <span style={{fontSize:13}} >{description}</span>
+        <span style={{ fontSize: 13 }}>{description}</span>
       </div>
     </div>
   );

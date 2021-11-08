@@ -47,15 +47,16 @@ class Navbar extends React.Component {
         } h-20 top-0 left-0 z-50 w-full`}
       >
         <div className="container h-full mx-auto flex items-center justify-between p-5  text-white">
+        <Link href='/' >
           <div className="flex items-center">
-            <div className="bg-white p-1 rounded-full">
-              <Logo />
-            </div>
+          <Logo />
             <div className="text-white flex flex-col items-center brand">
               <span className="font-BroLink text-2xl ">castroai</span>
               <span className="text-xs">Software Development Company</span>
             </div>
           </div>
+          </Link>
+
           <ul className="hidden md:flex  items-center space-x-6">
             {menuItems.map((item, index) => {
               const { name, path } = item;

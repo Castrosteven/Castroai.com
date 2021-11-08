@@ -7,7 +7,7 @@
   margin: 0;
 }
 body {
-  font-family: acumin-pro, sans-serif;
+  font-family: Acumin, sans-serif;
 }
 
 html {
@@ -19,6 +19,15 @@ html {
     font-family: "BroLink";
     font-weight: normal;
     src: local("BroLink"), url("./fonts/Brolink-Regular.ttf") format("truetype");
+    font-display: swap;
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: "Acumin";
+    font-weight: normal;
+    src: local("BroLink"), url("./fonts/Acumin-RPro.woff") format("woff");
     font-display: swap;
   }
 }

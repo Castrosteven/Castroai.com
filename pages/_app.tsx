@@ -3,10 +3,10 @@ import type { AppProps } from "next/app";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import * as ga from "../lib/ga";
-import SwiperCore, { Autoplay } from "swiper";
-
+import SwiperCore, { Autoplay, EffectFade } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 function MyApp({ Component, pageProps }: AppProps) {
-  SwiperCore.use([Autoplay]);
+  SwiperCore.use([Autoplay, EffectFade]);
 
   const router = useRouter();
   useEffect(() => {

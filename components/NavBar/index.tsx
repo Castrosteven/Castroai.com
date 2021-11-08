@@ -75,9 +75,11 @@ class Navbar extends React.Component {
                 </li>
               );
             })}
-            <Link href={"#contact"} passHref>
-              <Button>CONTACT US</Button>
-            </Link>
+            <Button>
+              <Link href={"#contact"} passHref>
+                CONTACT US
+              </Link>
+            </Button>
           </ul>
           <button className="md:hidden ">
             <Hamburger />

@@ -12,9 +12,20 @@ const ContactUsForm = () => {
   type formType = typeof initialState;
 
   const [form, setForm] = useState<formType>(initialState);
-
-  const formHandler = (e: React.FormEvent<HTMLFormElement>) => {
+  const [res, setRes] = useState(false);
+  const formHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+    const { status } = res;
+    status === 200 ? setRes(true) : setRes(false);
+    setForm(initialState);
   };
 
   const inputHandler = (
@@ -123,9 +134,13 @@ const ContactUsForm = () => {
         <div className="text-center">
           <button
             type="submit"
-            className="bg-gray-600 p-2 rounded-lg text-white text-center hover:bg-gray-200 hover:text-gray-800"
+            className={` p-2 rounded-lg text-white text-center  hover:text-gray-800 ${
+              res === true
+                ? " bg-green-500 text-white "
+                : " bg-gray-600 hover:bg-gray-200 "
+            }`}
           >
-            Send Email
+            {res ? "Message Sent" : "Send Email"}
           </button>
         </div>
       </div>

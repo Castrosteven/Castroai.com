@@ -1,31 +1,29 @@
-import SwiperCore, { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import style from "./style.module.css";
 import "swiper/css";
 import "swiper/css/effect-fade";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
 import Button from "../Button";
 
 // https://swiperjs.com/react
 const SlideShow = () => {
   return (
     <Swiper
-      className="h-full"
-      spaceBetween={30}
-      centeredSlides={true}
-      autoplay={{
-        delay: 10000,
-        disableOnInteraction: false,
-      }}
+      className={`h-full `}
+      style={style}
+      slidesPerView={1}
+      spaceBetween={0}
+      loop={true}
       pagination={{
         clickable: true,
       }}
-      // navigation={true}
-      effect={"fade"}
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: false,
+      }}
+      navigation={true}
     >
       <SwiperSlide>
-        <div style={style} className={`h-full w-full ${style.slide1} `}>
+        <div className={`h-full w-full ${style.slide1} `}>
           <div className="absolutetext-white flex justify-center items-center h-full w-full ">
             <div className="text-white text-left container mx-auto p-5 flex flex-col space-y-10 ">
               <p className="text-3xl font-semibold">
@@ -42,7 +40,7 @@ const SlideShow = () => {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div style={style} className={`h-full w-full ${style.slide2} `}>
+        <div className={`h-full w-full ${style.slide2} `}>
           <div className="absolutetext-white flex justify-center items-center h-full w-full ">
             <div className="text-white text-left container mx-auto p-5 flex flex-col space-y-10 ">
               <p className="text-3xl font-semibold">
@@ -59,7 +57,7 @@ const SlideShow = () => {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div style={style} className={`h-full w-full ${style.slide3} `}>
+        <div className={`h-full w-full ${style.slide3} `}>
           <div className="absolutetext-white flex justify-center items-center h-full w-full ">
             <div className="text-white text-left container mx-auto p-5 flex flex-col space-y-10 ">
               <p className="text-3xl font-semibold">

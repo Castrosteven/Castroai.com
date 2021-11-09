@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         BroLink: ["BroLink"],
+        Acumin:['Acumin']
       },
       colors: {
         CdarkOrange: "#CE4912",

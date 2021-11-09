@@ -11,7 +11,12 @@ body {
 }
 
 html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  font-family: Acumin, sans-serif;
+}
+html {
 }
 
 @layer base {
@@ -27,8 +32,8 @@ html {
   @font-face {
     font-family: "Acumin";
     font-weight: normal;
-    src: local("BroLink"), url("./fonts/Acumin-RPro.woff") format("woff");
-    font-display: swap;
+    src: local("Acumin"), url("./fonts/Acumin-RPro.woff") format("woff");
+    font-display: ;
   }
 }
 
@@ -38,4 +43,11 @@ html {
 
 .brand {
   line-height: 0.7;
+}
+
+.swiper-button-prev {
+  color: red;
+}
+:root {
+  --swiper-theme-color: #ce4912 !important;
 }

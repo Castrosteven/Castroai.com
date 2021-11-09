@@ -3,14 +3,16 @@ import type { AppProps } from "next/app";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import * as ga from "../lib/ga";
-import SwiperCore, { Autoplay, EffectFade } from "swiper";
-import React from "react";
-React.useLayoutEffect = React.useEffect;
+import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  SwiperCore.use([Autoplay, EffectFade]);
+  SwiperCore.use([Pagination, Navigation, Autoplay]);
 
   const router = useRouter();
+
   useEffect(() => {
     const handleRouteChange = (url: string) => {
       ga.pageview(url);

@@ -6,14 +6,23 @@ import Hamburger from "./hamburger.svg";
 import Button from "../Button";
 import { useState } from "react";
 import Link from "next/link";
-
-const menuItems = [
-  { name: "ABOUT US", path: "#about", logo: "" },
-  { name: "SERVICES", path: "#services", logo: "" },
-  { name: "BLOG", path: "/blog", logo: "" },
-];
+import { useRouter } from "next/router";
 
 const NavBar = () => {
+  const router = useRouter();
+
+  console.log(router.pathname);
+
+  let menuItems = [
+    { name: "ABOUT US", path: "#about", logo: "" },
+    { name: "SERVICES", path: "#services", logo: "" },
+    { name: "BLOG", path: "/blog", logo: "" },
+  ];
+
+  if (router.pathname === "/blog") {
+    menuItems = [{ name: "BLOG", path: "/blog", logo: "" }];
+  }
+
   const [nav, setNav] = useState(false);
   const [mobileNav, setMobileNav] = useState(false);
   const handleScroll = useCallback(() => {

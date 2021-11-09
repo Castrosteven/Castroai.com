@@ -4,7 +4,9 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import * as ga from "../lib/ga";
 import SwiperCore, { Autoplay, EffectFade } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import React from "react";
+React.useLayoutEffect = React.useEffect;
+
 function MyApp({ Component, pageProps }: AppProps) {
   SwiperCore.use([Autoplay, EffectFade]);
 

@@ -2,8 +2,6 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
 
-import Button from "../components/Button";
-
 //
 import { GetStaticProps } from "next";
 import { createClient } from "contentful";
@@ -19,7 +17,6 @@ export const getStaticProps: GetStaticProps = async () => {
     space: process.env.CONTENTFUL_SPACE_ID!,
     accessToken: process.env.CONTENTFUL_TOKEN_ID!,
   });
-  // const service = await client.getEntries("service");
   const { items: teamMembers } = await client.getEntries({
     content_type: "teamMember",
   });
@@ -79,10 +76,12 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
         >
           <div className="container p-5  flex mx-auto ">
             <div className="text-center pl:20 pr:20  space-y-10">
-              <p style={{fontSize:32}} className=" font-bold text-CdarkBlue">WHO WE ARE</p>
+              <p style={{ fontSize: 32 }} className=" font-bold text-CdarkBlue">
+                WHO WE ARE
+              </p>
               <p className="font-light leading-loose text-1xl text-darkGray ">
-                <span className="font-BroLink text-black ">castroai LLC</span> was
-                founded in 2021 in the state of New York. We are a team of
+                <span className="font-BroLink text-black ">castroai LLC</span>{" "}
+                was founded in 2021 in the state of New York. We are a team of
                 certified engenieers & designers with years of experience all
                 working towards the same goal. To deliver you and your business
                 with the highest quality product. We’ve already helped out many
@@ -102,7 +101,9 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
         </section>
         <section className=" bg-gray-100 pb-16 pt-16" id="services">
           <div className="container  text-center p-5  flex flex-col mx-auto">
-            <p style={{fontSize:32}} className="font-bold text-CdarkBlue">SERVICES</p>
+            <p style={{ fontSize: 32 }} className="font-bold text-CdarkBlue">
+              SERVICES
+            </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 items-center pt-16 ">
               {services.map((service, index) => {
@@ -114,7 +115,10 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
         <section id="contact" className="  bg-gray-400 ">
           <div className="container mx-auto p-5 pb-10 flex flex-col justify-center items-center h-full  ">
             <div className="p-5">
-              <p  style={{fontSize:32}} className=" font-bold text-gray-800"> 👋 Say Hello</p>
+              <p style={{ fontSize: 32 }} className=" font-bold text-gray-800">
+                {" "}
+                👋 Say Hello
+              </p>
             </div>
             <ContactUsForm />
           </div>

@@ -38,3 +38,4 @@ yarn-error.log*
 ./getContentfulEnvironment.js
 
 ./package-lock.json
+./yarn.lock

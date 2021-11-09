@@ -11,8 +11,6 @@ import { useRouter } from "next/router";
 const NavBar = () => {
   const router = useRouter();
 
-  console.log(router.pathname);
-
   let menuItems = [
     { name: "ABOUT US", path: "#about", logo: "" },
     { name: "SERVICES", path: "#services", logo: "" },

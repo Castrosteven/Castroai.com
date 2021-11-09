@@ -28,9 +28,9 @@ const TeamMemberCard = ({ member }: { member: ITeamMember }) => {
         </div>
       </div>
       <div className="flex">
-        <Link href={link}>
+        <a href={link} target={"_blank"} rel="noreferrer">
           <Linkedin height={25} width={25} />
-        </Link>
+        </a>
       </div>
     </div>
   );

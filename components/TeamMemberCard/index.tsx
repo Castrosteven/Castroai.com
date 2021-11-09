@@ -1,6 +1,5 @@
 import { ITeamMember } from "../../@types/generated/contentful";
 import Linkedin from "../../assets/linkedin.svg";
-import Link from "next/link";
 import Image from "next/image";
 const TeamMemberCard = ({ member }: { member: ITeamMember }) => {
   const { description, link, name, picture, title } = member.fields;

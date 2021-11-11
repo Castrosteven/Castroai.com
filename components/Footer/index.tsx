@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
-    <div className="bg-gray-800 text-white p-5  ">
-      <div className="container mx-auto flex flex-col md:flex-row justify-around h-full space-y-6 ">
+    <footer className="bg-gray-800 text-white p-5 w-full">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between h-full space-y-6 ">
         <div>
           <ul>
             <li>About us</li>
@@ -30,7 +30,7 @@ const Footer = () => {
           <span className="text-xs ">&copy; 2021</span>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

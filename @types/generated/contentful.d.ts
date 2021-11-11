@@ -3,6 +3,39 @@
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
+export interface IPostFields {
+  /** Title */
+  title: string;
+
+  /** subtext */
+  subtext: string;
+
+  /** slug */
+  slug?: string | undefined;
+
+  /** content */
+  content?: Document | undefined;
+}
+
+/** The Post Model */
+
+export interface IPost extends Entry<IPostFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "post";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IServiceFields {
   /** Name */
   name: string;
@@ -70,7 +103,7 @@ export interface ITeamMember extends Entry<ITeamMemberFields> {
   };
 }
 
-export type CONTENT_TYPE = "service" | "teamMember";
+export type CONTENT_TYPE = "post" | "service" | "teamMember";
 
 export type LOCALE_CODE = "en-US";
 

@@ -43,7 +43,7 @@ const NavBar = () => {
   }, [handleScroll]);
 
   return (
-    <div
+    <header
       className={`${
         nav
           ? "fixed bg-gray-800 transition duration-500 ease-in-out "
@@ -94,7 +94,7 @@ const NavBar = () => {
           <Hamburger />
         </button>
       </div>
-    </div>
+    </header>
   );
 };
 

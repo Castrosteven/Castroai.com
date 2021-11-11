@@ -1,11 +1,30 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-
+const desc = "CASTROAI | Custom Web Application Development";
+const pageTitle = "Castro AI LLC";
+const twitterHandle = "";
+const currentURL = "https://www.castroai.com";
+const previewImage =
+  "https://images.ctfassets.net/t2fhl88kz6ha/4Riwo6PGRC2mEnd8ZzDxg3/bd11a6285887056d952ed4436dba32f5/pexels-thisisengineering-3861972.jpg";
 export default class MyDocument extends Document {
   render() {
     return (
       <Html>
         <Head>
           {/* Global Site Tag (gtag.js) - Google Analytics */}
+   
+        <meta name="description" content={desc} />
+        <link rel="icon" href="/favicon.ico" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" key="twcard" />
+        <meta name="twitter:creator" content={twitterHandle} key="twhandle" />
+
+        {/* Open Graph */}
+        <meta property="og:url" content={currentURL} key="ogurl" />
+        <meta property="og:image" content={previewImage} key="ogimage" />
+        <meta property="og:site_name" content={pageTitle} key="ogsitename" />
+        <meta property="og:title" content={pageTitle} key="ogtitle" />
+        <meta property="og:description" content={desc} key="ogdesc" />
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}

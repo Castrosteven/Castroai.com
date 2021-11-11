@@ -8,8 +8,7 @@ import Button from "../Button";
 const SlideShow = () => {
   return (
     <Swiper
-      className={`h-full `}
-      style={style}
+      className={`${style.main}`}
       slidesPerView={1}
       spaceBetween={0}
       loop={true}

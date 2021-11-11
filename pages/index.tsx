@@ -5,10 +5,10 @@ import { GetStaticProps } from "next";
 import { createClient } from "contentful";
 import Layout from "../components/Layout";
 import { IService, ITeamMember } from "../@types/generated/contentful";
-import ServiceCard from "../components/ServiceCard";
-import TeamMemberCard from "../components/TeamMemberCard";
-import SlideShow from "../components/SlideShow";
-import ContactUsForm from "../components/ContactUsForm";
+import ServiceCard from "../components/Landing/ServiceCard";
+import TeamMemberCard from "../components/Landing/TeamMemberCard";
+import SlideShow from "../components/Landing/SlideShow";
+import ContactUsForm from "../components/Landing/ContactUsForm";
 
 export const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID!,

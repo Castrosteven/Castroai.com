@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import style from "./style.module.css";
 import "swiper/css";
 import "swiper/css/effect-fade";
-import Button from "../Button";
+import Button from "../../Layout/Button";
 
 // https://swiperjs.com/react
 const SlideShow = () => {

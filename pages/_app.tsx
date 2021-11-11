@@ -7,7 +7,9 @@ import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
+import { Amplify } from "aws-amplify";
+import config from "../src/aws-exports.js";
+Amplify.configure(config);
 function MyApp({ Component, pageProps }: AppProps) {
   SwiperCore.use([Pagination, Navigation, Autoplay]);
 

@@ -23,7 +23,13 @@ const PostCard = ({ post }: { post: IPost }) => {
       <div className=" w-full h-36">{title}</div>
       <div>{subtext}</div>
       {/* Author */}
-      <div className="w-full ">STEVE</div>
+      <div className="w-full ">
+        <Link href={`/blog/${slug}`} passHref>
+          <button className="bg-red-300 p-2 rounded-lg text-white">
+            READ MORE
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };

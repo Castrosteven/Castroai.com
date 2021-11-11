@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { IService } from "../../@types/generated/contentful";
+import { IService } from "../../../@types/generated/contentful";
 
 interface ServiceCardProps {
   service: IService;

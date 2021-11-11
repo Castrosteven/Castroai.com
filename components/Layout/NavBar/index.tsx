@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from "react";
-import Logo from "../../assets/logo.svg";
+import Logo from "../../../assets/logo.svg";
 import Hamburger from "./hamburger.svg";
 import Button from "../Button";
 import { useState } from "react";

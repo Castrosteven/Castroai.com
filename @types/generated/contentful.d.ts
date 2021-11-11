@@ -15,6 +15,9 @@ export interface IPostFields {
 
   /** content */
   content?: Document | undefined;
+
+  /** post_image */
+  postImage: Asset;
 }
 
 /** The Post Model */

@@ -4,7 +4,7 @@ import Navbar from "../NavBar";
 
 const Layout: FC = ({ children }) => {
   return (
-    <div className="h-screen ">
+    <div className=" ">
       <Navbar />
       <main className="">{children}</main>
       <Footer />

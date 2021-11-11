@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import { Auth } from "aws-amplify";
+import { AuthFormProps } from "../../../pages/auth";
 
-const ResetPassword = () => {
+const ResetPassword: FC<AuthFormProps> = ({ challenge }) => {
   const initialState = {
     username: "",
     code: "",
@@ -12,8 +13,9 @@ const ResetPassword = () => {
   const formHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      //   const user = await Auth.({});
-      //   console.log(user);
+      if (challenge === "NEW_PASSWORD_REQUIRED") {
+        // const res = await Auth.completeNewPassword();
+      }
     } catch (error) {}
   };
   const inputHandler = (

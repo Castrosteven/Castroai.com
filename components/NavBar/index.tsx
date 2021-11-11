@@ -1,6 +1,4 @@
 import React, { useCallback, useEffect } from "react";
-import styles from "./Navbar.module.css";
-import Image from "next/image";
 import Logo from "../../assets/logo.svg";
 import Hamburger from "./hamburger.svg";
 import Button from "../Button";
@@ -17,7 +15,7 @@ const NavBar = () => {
     { name: "BLOG", path: "/blog", logo: "" },
   ];
 
-  if (router.pathname === "/blog") {
+  if (router.pathname.includes("/blog")) {
     menuItems = [{ name: "BLOG", path: "/blog", logo: "" }];
   }
 

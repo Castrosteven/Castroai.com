@@ -9,6 +9,7 @@
     "codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts"
   },
   "dependencies": {
+    "@aws-amplify/ui-components": "^1.9.3",
     "@svgr/webpack": "^5.5.0",
     "@types/nodemailer": "^6.4.4",
     "autoprefixer": "^10.4.0",

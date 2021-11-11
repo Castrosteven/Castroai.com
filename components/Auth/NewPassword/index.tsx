@@ -2,29 +2,15 @@ import { FC, useState } from "react";
 import { Auth } from "aws-amplify";
 import { AuthFormProps } from "../../../pages/auth";
 
-const ResetPassword: FC<AuthFormProps> = ({ challenge }) => {
-  const initialState = {
-    username: "",
-    code: "",
-  };
-  type formType = typeof initialState;
-  const [form, setForm] = useState<formType>(initialState);
-
+const NewPassword: FC<AuthFormProps> = () => {
+  const [password, setPassword] = useState("");
   const formHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      if (challenge === "NEW_PASSWORD_REQUIRED") {
-        // const res = await Auth.completeNewPassword();
-      }
-    } catch (error) {}
-  };
-  const inputHandler = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const name = e.target.name;
-    let newState = { ...form };
-    newState[`${name}`] = e.target.value;
-    setForm(newState);
+      const res = await Auth.completeNewPassword(null, password);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -36,25 +22,14 @@ const ResetPassword: FC<AuthFormProps> = ({ challenge }) => {
       }}
     >
       <div className="w-3/4 flex flex-col justify-between ">
-        <label htmlFor="email">Email</label>
-        <input
-          value={form.username}
-          type="email"
-          placeholder="Email@email.com"
-          required
-          className="p-2 rounded-lg"
-          onChange={(e) => inputHandler(e)}
-        />
-      </div>
-      <div className="w-3/4 flex flex-col justify-between ">
         <label htmlFor="email">Password</label>
         <input
-          value={form.code}
+          value={password}
           type="password"
-          placeholder="password"
+          placeholder="Make a new password"
           required
-          className="p-2 rounded-lg"
-          onChange={(e) => inputHandler(e)}
+          className="p-2 rounded-lg text-black"
+          onChange={(e) => setPassword(e.target.value)}
         />
       </div>
       <div className="w-3/4  text-center">
@@ -75,4 +50,4 @@ const ResetPassword: FC<AuthFormProps> = ({ challenge }) => {
     </form>
   );
 };
-export default ResetPassword;
+export default NewPassword;

@@ -1,17 +1,16 @@
 import { NextPage } from "next";
-import { SetStateAction, useState } from "react";
-import ResetPassword from "../../components/Auth/ResetPassword";
+import { SetStateAction, useEffect, useState } from "react";
+import NewPassword from "../../components/Auth/NewPassword";
 import SignInForm from "../../components/Auth/SignInForm";
+
 export type Stages = "SIGN_IN" | "SIGN_UP" | "CHALLENGE" | "CONFIRM";
 export type AuthFormProps = {
-  setStage: React.Dispatch<SetStateAction<Stages>>;
-  setChallengeName?: React.Dispatch<SetStateAction<string>>;
+  setStage?: React.Dispatch<SetStateAction<Stages>>;
   challenge?: string;
 };
 
 const Auth: NextPage = () => {
   const [stages, setStage] = useState<Stages>("SIGN_IN");
-  const [challenge, setChallengeName] = useState("");
 
   return (
     <div className="h-screen bg-gray-200 w-full flex">
@@ -22,9 +21,9 @@ const Auth: NextPage = () => {
       </div>
       <div className="bg-blue-400 w-1/2 flex items-center justify-center">
         {stages === "SIGN_IN" ? (
-          <SignInForm setStage={setStage} setChallengeName={setChallengeName} />
+          <SignInForm />
         ) : stages === "CHALLENGE" ? (
-          <ResetPassword setStage={setStage} challenge={challenge} />
+          <NewPassword />
         ) : null}
       </div>
     </div>

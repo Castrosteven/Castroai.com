@@ -2,28 +2,24 @@ import { FC, useState } from "react";
 import { Auth } from "aws-amplify";
 import { CognitoUserInterface } from "@aws-amplify/ui-components";
 import { AuthFormProps } from "../../../pages/auth";
-import { UpdateUser } from "../../../context/AuthContext";
 
-const SignInForm: FC<AuthFormProps> = ({ setStage, setChallengeName }) => {
+const SignInForm: FC<AuthFormProps> = ({ setStage }) => {
   const initialState = {
     username: "",
     password: "",
   };
   type formType = typeof initialState;
   const [form, setForm] = useState<formType>(initialState);
-  const { setUser } = UpdateUser();
 
   const formHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const user: CognitoUserInterface = await Auth.signIn(form);
       console.log(user);
-      setUser(user);
+
       const { challengeName } = user;
       if (challengeName === "NEW_PASSWORD_REQUIRED") {
-        setChallengeName("NEW_PASSWORD_REQUIRED");
         setStage("CHALLENGE");
-        console.log("NEED TO CHANGE PASSWORD with respondToAuthChallenge");
       }
     } catch (error) {}
   };

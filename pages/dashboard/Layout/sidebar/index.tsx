@@ -16,7 +16,7 @@ const SideBar = () => {
               key={index}
               className="bg-white w-full p-4 hover:bg-gray-500 hover:text-white"
             >
-              <Link href={item.page} passHref>
+              <Link href={item.link} passHref>
                 <a>{item.page}</a>
               </Link>
             </li>

@@ -10,7 +10,6 @@ import "swiper/css/navigation";
 import { Amplify } from "aws-amplify";
 import config from "../src/aws-exports.js";
 Amplify.configure(config);
-import { AuthProvider } from "../context/AuthContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   SwiperCore.use([Pagination, Navigation, Autoplay]);
@@ -31,11 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router.events]);
-  return (
-    <AuthProvider>
-      <Component {...pageProps} />;
-    </AuthProvider>
-  );
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;

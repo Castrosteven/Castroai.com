@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
 import { Auth } from "aws-amplify";
-
+import { useRouter } from "next/router";
 import {
   CognitoUserInterface,
   SignUpAttributes,
 } from "@aws-amplify/ui-components";
+import Toast from "../../components/Toast";
 
 type AuthContextType = {
   user: CognitoUserInterface;
@@ -18,7 +19,20 @@ const authContext = createContext<AuthContextType>(null);
 
 export function AuthProvider({ children }) {
   const auth = useProvideAuth();
-  return <authContext.Provider value={auth}>{children}</authContext.Provider>;
+
+  const router = useRouter();
+
+  return (
+    <authContext.Provider value={auth}>
+      <div>
+        {router.pathname.includes("dashboard") ||
+        router.pathname.includes("auth") ? (
+          <Toast msg={auth.error} status={auth.error && "BAD"} />
+        ) : null}
+        {children}
+      </div>
+    </authContext.Provider>
+  );
 }
 
 export const useAuth = () => {
@@ -38,9 +52,10 @@ function useProvideAuth() {
       console.log(`SIGNED IN`);
       setUser(user);
       setLoading(false);
+      setError(null);
     } catch (error) {
-      setError(error);
-      alert(error);
+      console.log(JSON.stringify(error));
+      setError(error.message);
 
       setLoading(false);
     }
@@ -54,9 +69,10 @@ function useProvideAuth() {
       setUser(null);
       console.log(`SIGNED OUT`);
       setLoading(false);
+      setError(null);
     } catch (error) {
-      setError(error);
-      alert(error);
+      setError(error.message);
+
       setLoading(false);
     }
   };
@@ -68,10 +84,9 @@ function useProvideAuth() {
       setUser(res);
       console.log(`Created new password`);
       setLoading(false);
+      setError(null);
     } catch (error) {
-      setError(error);
-      alert(error);
-
+      setError(error.message);
       setLoading(false);
     }
   };
@@ -85,10 +100,8 @@ function useProvideAuth() {
         setUser(user);
         console.log(`Set user`);
         setLoading(false);
+        setError(null);
       } catch (error) {
-        setError(error);
-        alert(error);
-
         setLoading(false);
       }
     };
@@ -101,5 +114,6 @@ function useProvideAuth() {
     signout,
     signin,
     newPassword,
+    error,
   };
 }

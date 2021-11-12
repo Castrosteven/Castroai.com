@@ -10,7 +10,6 @@ const NewPassword: FC = () => {
     e.preventDefault();
     try {
       await newPassword(password);
-      router.push("/dashboard");
     } catch (error) {
       console.log(error);
     }
@@ -19,7 +18,7 @@ const NewPassword: FC = () => {
   return (
     <form
       action=""
-      className="bg-gray-800 text-white flex flex-col h-1/2 w-1/2 justify-center items-center space-y-5 rounded-lg"
+      className="bg-gray-800 text-white flex flex-col h-full w-full md:w-1/2 md:h-1/2 justify-center items-center space-y-5 md:rounded-lg"
       onSubmit={(e) => {
         formHandler(e);
       }}

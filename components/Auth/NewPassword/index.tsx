@@ -1,12 +1,13 @@
 import { FC, useState } from "react";
 import { Auth } from "aws-amplify";
-
+import { useAuth } from "../../../lib/auth";
 const NewPassword: FC = () => {
+  const { newPassword } = useAuth();
   const [password, setPassword] = useState("");
   const formHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await Auth.completeNewPassword(null, password);
+      await newPassword(password);
     } catch (error) {
       console.log(error);
     }

@@ -4,16 +4,21 @@ import NewPassword from "../../components/Auth/NewPassword";
 import SignInForm from "../../components/Auth/SignInForm";
 import { useAuth } from "../../lib/auth";
 import { useRouter } from "next/router";
-
+import { CognitoUserInterface } from "@aws-amplify/ui-components";
 export type Stages = "SIGN_IN" | "SIGN_UP" | "CHALLENGE" | "CONFIRM";
 
 const Auth: NextPage = () => {
-  const { user } = useAuth();
+  const { user }: { user: CognitoUserInterface | false } = useAuth();
   const [stages, setStage] = useState<Stages>("SIGN_IN");
   const router = useRouter();
   useEffect(() => {
     if (user) {
-      router.push("/dashboard");
+      const { challengeName } = user;
+      if (challengeName === "NEW_PASSWORD_REQUIRED") {
+        setStage("CHALLENGE");
+      } else {
+        router.push("/dashboard");
+      }
     }
   }, []);
   return (

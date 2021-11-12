@@ -14,6 +14,7 @@ const Auth: NextPage = () => {
   useEffect(() => {
     if (user) {
       const { challengeName } = user;
+      console.log(challengeName);
       if (challengeName === "NEW_PASSWORD_REQUIRED") {
         setStage("CHALLENGE");
       } else {

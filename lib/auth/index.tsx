@@ -40,6 +40,7 @@ function useProvideAuth() {
       console.log(form);
       const user = await Auth.signIn(form);
       setUser(user);
+      router.reload();
     } catch (error) {
       return error;
     }
@@ -53,7 +54,7 @@ function useProvideAuth() {
   const newPassword = async (password: string) => {
     const res = await Auth.completeNewPassword(user, password);
     handleUser(res);
-    router.push("/auth");
+    return res;
   };
 
   useEffect(() => {

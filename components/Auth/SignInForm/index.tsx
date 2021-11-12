@@ -16,7 +16,6 @@ const SignInForm: FC = () => {
     e.preventDefault();
     try {
       await signin(form);
-      await router.push("/dashboard");
     } catch (error) {
       console.log(error);
     }

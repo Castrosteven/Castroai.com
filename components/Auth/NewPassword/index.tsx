@@ -1,13 +1,16 @@
 import { FC, useState } from "react";
 import { Auth } from "aws-amplify";
 import { useAuth } from "../../../lib/auth";
+import { useRouter } from "next/router";
 const NewPassword: FC = () => {
+  const router = useRouter();
   const { newPassword } = useAuth();
   const [password, setPassword] = useState("");
   const formHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       await newPassword(password);
+      router.push("/dashboard");
     } catch (error) {
       console.log(error);
     }

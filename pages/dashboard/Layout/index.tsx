@@ -1,24 +1,27 @@
 import { FC, useEffect } from "react";
 import SideBar from "./sidebar";
+import { useAuth } from "../../../lib/auth";
 
-import { Auth } from "aws-amplify";
+import { useRouter } from "next/router";
 const DashboardLayout: FC = ({ children }) => {
+  const auth = useAuth();
   useEffect(() => {
-    const getUser = async () => {
-      console.log("ran");
-      try {
-        const user = await Auth.currentAuthenticatedUser();
-        console.log(user);
-      } catch (error) {}
-    };
-    getUser;
+    if (!auth.user) {
+      router.push("/auth");
+    }
   }, []);
+  const router = useRouter();
 
   return (
     <div className="bg-gray-800 h-screen w-full flex">
-      <header className="h-20 bg-gray-200 w-full items-center flex pl-10 pr-10 fixed">
+      <header className="h-20 bg-gray-200 w-full items-center flex pl-10 pr-10 fixed justify-between">
         <span className="text-2xl">Customer Dashboard</span>
-        <nav></nav>
+        <button
+          className="bg-gray-800 p-2 text-white rounded-lg"
+          onClick={() => auth.signout()}
+        >
+          SIGNOUT
+        </button>
       </header>
       <SideBar />
       <main className="w-5/6 pt-24 p-10">{children}</main>

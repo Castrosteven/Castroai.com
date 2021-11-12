@@ -2,16 +2,20 @@ import { NextPage } from "next";
 import { SetStateAction, useEffect, useState } from "react";
 import NewPassword from "../../components/Auth/NewPassword";
 import SignInForm from "../../components/Auth/SignInForm";
+import { useAuth } from "../../lib/auth";
+import { useRouter } from "next/router";
 
 export type Stages = "SIGN_IN" | "SIGN_UP" | "CHALLENGE" | "CONFIRM";
-export type AuthFormProps = {
-  setStage?: React.Dispatch<SetStateAction<Stages>>;
-  challenge?: string;
-};
 
 const Auth: NextPage = () => {
+  const { user } = useAuth();
   const [stages, setStage] = useState<Stages>("SIGN_IN");
-
+  const router = useRouter();
+  useEffect(() => {
+    if (user) {
+      router.push("/dashboard");
+    }
+  }, []);
   return (
     <div className="h-screen bg-gray-200 w-full flex">
       <div className="bg-red-400 w-1/2 flex items-center justify-center">

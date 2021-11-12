@@ -1,9 +1,10 @@
 import { FC, useState } from "react";
-import { Auth } from "aws-amplify";
-import { CognitoUserInterface } from "@aws-amplify/ui-components";
-import { AuthFormProps } from "../../../pages/auth";
+import { useAuth } from "../../../lib/auth";
+import { useRouter } from "next/router";
+const SignInForm: FC = () => {
+  const router = useRouter();
+  const { signin } = useAuth();
 
-const SignInForm: FC<AuthFormProps> = ({ setStage }) => {
   const initialState = {
     username: "",
     password: "",
@@ -14,14 +15,11 @@ const SignInForm: FC<AuthFormProps> = ({ setStage }) => {
   const formHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const user: CognitoUserInterface = await Auth.signIn(form);
-      console.log(user);
-
-      const { challengeName } = user;
-      if (challengeName === "NEW_PASSWORD_REQUIRED") {
-        setStage("CHALLENGE");
-      }
-    } catch (error) {}
+      await signin(form);
+      await router.push("/dashboard");
+    } catch (error) {
+      console.log(error);
+    }
   };
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

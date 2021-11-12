@@ -1,8 +1,7 @@
 import { FC, useState } from "react";
 import { Auth } from "aws-amplify";
-import { AuthFormProps } from "../../../pages/auth";
 
-const NewPassword: FC<AuthFormProps> = () => {
+const NewPassword: FC = () => {
   const [password, setPassword] = useState("");
   const formHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

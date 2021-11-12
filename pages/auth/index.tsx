@@ -18,12 +18,14 @@ const Auth: NextPage = () => {
   }, []);
   return (
     <div className="h-screen bg-gray-200 w-full flex">
-      <div className="bg-red-400 w-1/2 flex items-center justify-center">
+      <div className=" w-1/2 flex items-center justify-center">
         <div>
-          <p>Welcome please sign in </p>
+          <p className="text-3xl font-extrabold text-center">
+            CUSTOMER LOGIN PANEL{" "}
+          </p>
         </div>
       </div>
-      <div className="bg-blue-400 w-1/2 flex items-center justify-center">
+      <div className=" w-1/2 flex items-center justify-center">
         {stages === "SIGN_IN" ? (
           <SignInForm />
         ) : stages === "CHALLENGE" ? (

@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
   return (
     <AuthProvider>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </AuthProvider>
   );
 }

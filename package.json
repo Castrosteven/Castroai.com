@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@aws-amplify/ui-components": "^1.9.3",
+    "@contentful/rich-text-react-renderer": "^15.6.2",
     "@svgr/webpack": "^5.5.0",
     "@types/nodemailer": "^6.4.4",
+    "@types/prismjs": "^1.16.6",
     "autoprefixer": "^10.4.0",
     "aws-amplify": "^4.3.5",
     "contentful": "^9.1.4",
@@ -20,6 +22,7 @@
     "nodemailer": "^6.7.0",
     "postcss": "^8.3.11",
     "prettier": "^2.4.1",
+    "prismjs": "^1.25.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "swiper": "^7.2.0",

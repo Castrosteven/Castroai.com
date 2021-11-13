@@ -3,6 +3,34 @@
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
+export interface ICodeBlockFields {
+  /** Description */
+  description?: string | undefined;
+
+  /** Language */
+  language?: string | undefined;
+
+  /** Code */
+  code?: string | undefined;
+}
+
+export interface ICodeBlock extends Entry<ICodeBlockFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "codeBlock";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IPostFields {
   /** Title */
   title: string;
@@ -106,7 +134,37 @@ export interface ITeamMember extends Entry<ITeamMemberFields> {
   };
 }
 
-export type CONTENT_TYPE = "post" | "service" | "teamMember";
+export interface IVideoFields {
+  /** Title */
+  title?: string | undefined;
+
+  /** Embed URL */
+  embedUrl?: string | undefined;
+}
+
+export interface IVideo extends Entry<IVideoFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "video";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export type CONTENT_TYPE =
+  | "codeBlock"
+  | "post"
+  | "service"
+  | "teamMember"
+  | "video";
 
 export type LOCALE_CODE = "en-US";
 

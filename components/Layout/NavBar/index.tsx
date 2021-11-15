@@ -13,6 +13,7 @@ const NavBar = () => {
     { name: "ABOUT US", path: "#about", logo: "" },
     { name: "SERVICES", path: "#services", logo: "" },
     { name: "BLOG", path: "/blog", logo: "" },
+    { name: "TECHNOLOGIES", path: "#tech", logo: "" },
   ];
 
   if (router.pathname.includes("/blog")) {
@@ -48,7 +49,7 @@ const NavBar = () => {
           : "absolute bg-transparent "
       } h-20 top-0 left-0 z-50 w-full`}
     >
-      <div className="container h-full mx-auto flex items-center justify-between p-5  text-white">
+      <div className="container h-full mx-auto flex items-center justify-between p-5  text-white  max-w-6xl">
         <Link href="/" passHref>
           <div className="flex items-center  ">
             <Logo />

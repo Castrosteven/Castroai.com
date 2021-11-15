@@ -8,7 +8,7 @@ import Button from "../../Layout/Button";
 const SlideShow = () => {
   return (
     <Swiper
-      className={`${style.main}`}
+      className={`${style.main} `}
       slidesPerView={1}
       spaceBetween={0}
       loop={true}
@@ -22,9 +22,9 @@ const SlideShow = () => {
       navigation={true}
     >
       <SwiperSlide>
-        <div className={`h-full w-full ${style.slide1} `}>
-          <div className="absolutetext-white flex justify-center items-center h-full w-full ">
-            <div className="text-white text-left container mx-auto p-5 flex flex-col space-y-10 ">
+        <div className={`h-full w-full ${style.slide1}  `}>
+          <div className="absolute text-white flex justify-center items-center h-full w-full ">
+            <div className="text-white text-left container mx-auto p-5 flex flex-col space-y-10 max-w-6xl">
               <p className="text-3xl font-semibold">
                 ENTERPRISE SOFTWARE <br />
                 DEVELOPMENT
@@ -41,7 +41,7 @@ const SlideShow = () => {
       <SwiperSlide>
         <div className={`h-full w-full ${style.slide2} `}>
           <div className="absolutetext-white flex justify-center items-center h-full w-full ">
-            <div className="text-white text-left container mx-auto p-5 flex flex-col space-y-10 ">
+            <div className="text-white text-left container mx-auto p-5 flex flex-col space-y-10 max-w-6xl ">
               <p className="text-3xl font-semibold">
                 MOBILE APPLICATION
                 <br />
@@ -58,7 +58,7 @@ const SlideShow = () => {
       <SwiperSlide>
         <div className={`h-full w-full ${style.slide3} `}>
           <div className="absolutetext-white flex justify-center items-center h-full w-full ">
-            <div className="text-white text-left container mx-auto p-5 flex flex-col space-y-10 ">
+            <div className="text-white text-left container mx-auto p-5 flex flex-col space-y-10 max-w-6xl ">
               <p className="text-3xl font-semibold">
                 APPLICATION PROGRAMMING INTERFACE
                 <br />

@@ -5,7 +5,7 @@ const Technologies = () => {
     <Layout>
       <div>
         <div className="pt-20 bg-gray-800"></div>
-        <div className="container mx-auto">
+        <div className="container mx-auto max-w-6xl">
           <h1>HELLO I AM Technologies PAGE </h1>
         </div>
       </div>

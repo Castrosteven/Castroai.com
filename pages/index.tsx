@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 import { GetStaticProps } from "next";
 import { createClient } from "contentful";
 import Layout from "../components/Layout";
@@ -11,6 +12,7 @@ import TeamMemberCard from "../components/Landing/TeamMemberCard";
 import SlideShow from "../components/Landing/SlideShow";
 import ContactUsForm from "../components/Landing/ContactUsForm";
 import TechImage from "../assets/tech_image.png";
+import Section from "../components/Landing/Section";
 
 export const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID!,
@@ -54,7 +56,7 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
         className=" bg-white pb-16 pt-16 flex flex-col justify-around items-center "
         id="about"
       >
-        <div className="container p-5  flex mx-auto ">
+        <Section>
           <div className="text-center pl:20 pr:20  space-y-10">
             <p style={{ fontSize: 32 }} className=" font-bold text-CdarkBlue">
               WHO WE ARE
@@ -68,20 +70,22 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
               new business in making their dreams come true. Now it’s your turn.
             </p>
           </div>
-          {/*  */}
-        </div>
-        <div className="container   mx-auto p-5 ">
+        </Section>
+        <Section>
           <div className=" grid md:grid-cols-3 gap-4 items-center">
             {teamMembers.map((member, index) => {
               return <TeamMemberCard key={index} member={member} />;
             })}
           </div>
-        </div>
+        </Section>
       </section>
       {/* Services */}
       <section className=" bg-gray-100 pb-16 pt-16" id="services">
-        <div className="container  text-center p-5  flex flex-col mx-auto">
-          <p style={{ fontSize: 32 }} className="font-bold text-CdarkBlue">
+        <Section>
+          <p
+            style={{ fontSize: 32 }}
+            className="font-bold text-CdarkBlue text-center"
+          >
             SERVICES
           </p>
 
@@ -90,49 +94,51 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
               return <ServiceCard key={index} service={service} />;
             })}
           </div>
-        </div>
+        </Section>
       </section>
       {/* Contact */}
-      <section id="technologies" className="  bg-white ">
-        <div className="container mx-auto p-5 flex flex-col md:flex-row md:flex-wrap  justify-center items-center h-full   ">
-          <p
-            style={{ fontSize: 32 }}
-            className=" font-bold text-CdarkBlue pt-10 pb-10 md:w-full "
-          >
-            THE TECH STACK
-          </p>
-          <div className="md:w-1/2">
-            <Image src={TechImage} alt="Tech" className="rounded-sm" />
-          </div>
-          <div></div>
-          <div className="text-center md:w-1/2 md:p-5">
-            <div>
-              <p className="text-left md:text-center">
-                Build your software leveraging the latest technological
-                improvements and breakthroughs. Whether you are looking for a
-                mobile, tablet, desktop, or cross-platform software suite,
-                CASTRO AI can help you build a comprehensive solution that will
-                cater to your business needs and help you achieve your key
-                objectives.
-              </p>
+      <section id="tech" className="bg-white ">
+        <Section>
+          <div className="flex flex-col md:flex-row md:flex-wrap  justify-center items-center">
+            <p
+              style={{ fontSize: 32 }}
+              className=" font-bold text-CdarkBlue pt-10 pb-10 md:w-full text-center "
+            >
+              THE TECH STACK
+            </p>
+            <div className="md:w-1/2">
+              <Image src={TechImage} alt="Tech" className="rounded-sm" />
             </div>
-            <button className="bg-CdarkOrange text-white p-2 rounded-lg">
-              Read More
-            </button>
+            <div className="text-center md:w-1/2 md:p-5">
+              <div>
+                <p className="text-left md:text-center">
+                  Build your software leveraging the latest technological
+                  improvements and breakthroughs. Whether you are looking for a
+                  mobile, tablet, desktop, or cross-platform software suite,
+                  CASTRO AI can help you build a comprehensive solution that
+                  will cater to your business needs and help you achieve your
+                  key objectives.
+                </p>
+              </div>
+              <button className="bg-CdarkOrange text-white p-2 rounded-lg">
+                <Link href={"/technologies"}>Read More</Link>
+              </button>
+            </div>
           </div>
-        </div>
+        </Section>
       </section>
       {/* Contact */}
       <section id="contact" className="  bg-gray-400 ">
-        <div className="container mx-auto p-5 pb-10 flex flex-col justify-center items-center h-full   ">
-          <div className="p-5">
-            <p style={{ fontSize: 32 }} className=" font-bold text-gray-800">
-              {" "}
-              👋 Say Hello
-            </p>
+        <Section>
+          <div className=" p-5 pb-10 flex flex-col justify-center items-center h-full   ">
+            <div className="p-5">
+              <p style={{ fontSize: 32 }} className=" font-bold text-gray-800">
+                👋 Say Hello
+              </p>
+            </div>
+            <ContactUsForm />
           </div>
-          <ContactUsForm />
-        </div>
+        </Section>
       </section>
     </Layout>
   );

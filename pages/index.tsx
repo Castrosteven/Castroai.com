@@ -94,28 +94,30 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
       </section>
       {/* Contact */}
       <section id="technologies" className="  bg-white ">
-        <div className="container mx-auto p-5 flex flex-col justify-center items-center h-full   ">
+        <div className="container mx-auto p-5 flex flex-col md:flex-row md:flex-wrap  justify-center items-center h-full   ">
           <p
             style={{ fontSize: 32 }}
-            className=" font-bold text-CdarkBlue pt-10 pb-10 "
+            className=" font-bold text-CdarkBlue pt-10 pb-10 md:w-full "
           >
             THE TECH STACK
           </p>
-          <div className="">
-            <Image src={TechImage} alt="Tech" />
+          <div className="md:w-1/2">
+            <Image src={TechImage} alt="Tech" className="rounded-sm" />
           </div>
           <div></div>
-          <div className="text-center">
-            <p className="text-left">
-              Build your software leveraging the latest technological
-              improvements and breakthroughs. Whether you are looking for a
-              mobile, tablet, desktop, or cross-platform software suite, castro
-              ai can help you build a comprehensive solution that will cater to
-              your business needs and help you achieve your key objectives.
-            </p>
+          <div className="text-center md:w-1/2 md:p-5">
+            <div>
+              <p className="text-left md:text-center">
+                Build your software leveraging the latest technological
+                improvements and breakthroughs. Whether you are looking for a
+                mobile, tablet, desktop, or cross-platform software suite,
+                CASTRO AI can help you build a comprehensive solution that will
+                cater to your business needs and help you achieve your key
+                objectives.
+              </p>
+            </div>
             <button className="bg-CdarkOrange text-white p-2 rounded-lg">
-              {" "}
-              Read More{" "}
+              Read More
             </button>
           </div>
         </div>

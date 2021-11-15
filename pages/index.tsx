@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import React from "react";
 import { GetStaticProps } from "next";
 import { createClient } from "contentful";
@@ -9,6 +10,7 @@ import ServiceCard from "../components/Landing/ServiceCard";
 import TeamMemberCard from "../components/Landing/TeamMemberCard";
 import SlideShow from "../components/Landing/SlideShow";
 import ContactUsForm from "../components/Landing/ContactUsForm";
+import TechImage from "../assets/tech_image.png";
 
 export const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID!,
@@ -91,8 +93,36 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
         </div>
       </section>
       {/* Contact */}
+      <section id="technologies" className="  bg-white ">
+        <div className="container mx-auto p-5 flex flex-col justify-center items-center h-full   ">
+          <p
+            style={{ fontSize: 32 }}
+            className=" font-bold text-CdarkBlue pt-10 pb-10 "
+          >
+            THE TECH STACK
+          </p>
+          <div className="">
+            <Image src={TechImage} alt="Tech" />
+          </div>
+          <div></div>
+          <div className="text-center">
+            <p className="text-left">
+              Build your software leveraging the latest technological
+              improvements and breakthroughs. Whether you are looking for a
+              mobile, tablet, desktop, or cross-platform software suite, castro
+              ai can help you build a comprehensive solution that will cater to
+              your business needs and help you achieve your key objectives.
+            </p>
+            <button className="bg-CdarkOrange text-white p-2 rounded-lg">
+              {" "}
+              Read More{" "}
+            </button>
+          </div>
+        </div>
+      </section>
+      {/* Contact */}
       <section id="contact" className="  bg-gray-400 ">
-        <div className="container mx-auto p-5 pb-10 flex flex-col justify-center items-center h-full  ">
+        <div className="container mx-auto p-5 pb-10 flex flex-col justify-center items-center h-full   ">
           <div className="p-5">
             <p style={{ fontSize: 32 }} className=" font-bold text-gray-800">
               {" "}

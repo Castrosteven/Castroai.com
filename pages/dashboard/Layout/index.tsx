@@ -17,8 +17,8 @@ const DashboardLayout: FC = ({ children }) => {
       {loading ? (
         <div>LOADING....</div>
       ) : (
-        <div className="bg-gray-800 h-screen w-full flex">
-          <header className="h-20 bg-gray-200 w-full items-center flex pl-10 pr-10 fixed justify-between">
+        <div className="bg-gray-800 h-screen w-full flex flex-col flex-1 justify-between md:flex-row-reverse">
+          <header className="h-20 bg-gray-200 w-full items-center flex pl-10 pr-10 fixed justify-between md:w-full">
             <span className="text-2xl">Customer Dashboard</span>
             <button
               className="bg-gray-800 p-2 text-white rounded-lg"
@@ -27,8 +27,10 @@ const DashboardLayout: FC = ({ children }) => {
               SIGNOUT
             </button>
           </header>
+          <main className="md:w-11/12 md:pt-24 pt-20 md:p-10  h-full">
+            {children}
+          </main>
           <SideBar />
-          <main className="w-5/6 pt-24 p-10">{children}</main>
         </div>
       )}
     </div>

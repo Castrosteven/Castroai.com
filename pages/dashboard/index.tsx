@@ -14,7 +14,9 @@ const Dashboard: NextPage = () => {
 
   return (
     <DashboardLayout>
-      <div className="text-white">DASHBOARD</div>
+      <div className="text-white  p-3 bg-blue-800 h-full w-full md:rounded-lg">
+        DASHBOARD
+      </div>
     </DashboardLayout>
   );
 };

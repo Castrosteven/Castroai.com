@@ -8,8 +8,8 @@ const SideBar = () => {
   ];
 
   return (
-    <div className="h-full w-1/6 bg-gray-400 pt-20 flex flex-col items-center ">
-      <ul className="h-1/4 flex flex-col justify-around w-full pt-20 space-y-4 ">
+    <div className="md:h-full md:w-1/12  bg-gray-400 md:pt-20 ">
+      <ul className="flex md:flex-col flex-row md:justify-start w-full md:pt-4 md:space-y-4 ">
         {items.map((item, index) => {
           return (
             <li

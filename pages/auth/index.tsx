@@ -1,10 +1,9 @@
 import { NextPage } from "next";
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import NewPassword from "../../components/Auth/NewPassword";
 import SignInForm from "../../components/Auth/SignInForm";
 import { useAuth } from "../../lib/auth";
 import { useRouter } from "next/router";
-import { CognitoUserInterface } from "@aws-amplify/ui-components";
 export type Stages = "SIGN_IN" | "SIGN_UP" | "CHALLENGE" | "CONFIRM";
 
 const Auth: NextPage = () => {

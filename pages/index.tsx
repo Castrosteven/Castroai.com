@@ -13,6 +13,7 @@ import SlideShow from "../components/Landing/SlideShow";
 import ContactUsForm from "../components/Landing/ContactUsForm";
 import TechImage from "../assets/tech_image.png";
 import Section from "../components/Landing/Section";
+import Script from "next/script";
 
 export const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID!,
@@ -149,6 +150,12 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
           </div>
         </Section>
       </section>
+      <Script
+        async
+        id="slcLiveChat"
+        src="https://widget.sonetel.com/SonetelWidget.min.js"
+        data-account-id="207850791"
+      ></Script>
     </Layout>
   );
 };

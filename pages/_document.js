@@ -46,6 +46,12 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <script
+        async
+        id="slcLiveChat"
+        src="https://widget.sonetel.com/SonetelWidget.min.js"
+        data-account-id="207850791"
+      ></script>
         </body>
       </Html>
     )

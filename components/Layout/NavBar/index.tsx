@@ -12,8 +12,8 @@ const NavBar = () => {
   let menuItems = [
     { name: "ABOUT US", path: "#about", logo: "" },
     { name: "SERVICES", path: "#services", logo: "" },
-    { name: "BLOG", path: "/blog", logo: "" },
-    { name: "TECHNOLOGIES", path: "#tech", logo: "" },
+    // { name: "BLOG", path: "/blog", logo: "" },
+    // { name: "TECHNOLOGIES", path: "#tech", logo: "" },
   ];
 
   if (router.pathname.includes("/blog")) {

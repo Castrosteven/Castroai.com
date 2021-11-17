@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+
 const desc = "CASTROAI | Custom Web Application Development";
 const pageTitle = "Castro AI LLC";
 const twitterHandle = "";

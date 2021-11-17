@@ -53,14 +53,19 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
       <SlideShow />
       {/* About */}
       <section
-        className=" bg-white pb-16 pt-16 flex flex-col justify-around items-center "
+        className=" bg-white  flex flex-col justify-around items-center "
         id="about"
       >
         <Section>
-          <div className="text-center pl:20 pr:20  space-y-10">
-            <p style={{ fontSize: 32 }} className=" font-bold text-CdarkBlue">
+          <div className="pt-10 pb-10">
+            <p
+              style={{ fontSize: 32 }}
+              className=" font-bold text-CdarkBlue text-center"
+            >
               WHO WE ARE
             </p>
+          </div>
+          <div className="text-center space-y-10">
             <p className="font-light leading-loose text-1xl text-darkGray ">
               <span className="font-BroLink text-black ">castroai LLC</span> was
               founded in 2021 in the state of New York. We are a team of
@@ -80,16 +85,18 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
         </Section>
       </section>
       {/* Services */}
-      <section className=" bg-gray-100 pb-16 pt-16" id="services">
+      <section className=" bg-gray-100 " id="services">
         <Section>
-          <p
-            style={{ fontSize: 32 }}
-            className="font-bold text-CdarkBlue text-center"
-          >
-            SERVICES
-          </p>
+          <div className="pt-10 pb-10">
+            <p
+              style={{ fontSize: 32 }}
+              className="font-bold text-CdarkBlue text-center"
+            >
+              SERVICES
+            </p>
+          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 items-center pt-16 ">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 items-center  ">
             {services.map((service, index) => {
               return <ServiceCard key={index} service={service} />;
             })}
@@ -100,12 +107,14 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
       <section id="tech" className="bg-white ">
         <Section>
           <div className="flex flex-col md:flex-row md:flex-wrap  justify-center items-center">
-            <p
-              style={{ fontSize: 32 }}
-              className=" font-bold text-CdarkBlue pt-10 pb-10 md:w-full text-center "
-            >
-              THE TECH STACK
-            </p>
+            <div className="pt-10 pb-10 md:w-full">
+              <p
+                style={{ fontSize: 32 }}
+                className=" font-bold text-CdarkBlue   text-center "
+              >
+                THE TECH STACK
+              </p>
+            </div>
             <div className="md:w-1/2">
               <Image src={TechImage} alt="Tech" className="rounded-sm" />
             </div>
@@ -130,8 +139,8 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
       {/* Contact */}
       <section id="contact" className="  bg-gray-400 ">
         <Section>
-          <div className=" p-5 pb-10 flex flex-col justify-center items-center h-full   ">
-            <div className="p-5">
+          <div className="flex flex-col justify-center items-center h-full   ">
+            <div className="pt-10 pb-10">
               <p style={{ fontSize: 32 }} className=" font-bold text-gray-800">
                 👋 Say Hello
               </p>

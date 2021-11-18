@@ -10,6 +10,7 @@ module.exports = {
         BroLink: ["BroLink"],
         Acumin:['Acumin']
       },
+      
       colors: {
         CdarkOrange: "#CE4912",
         Corange: "#FF9D0A",
@@ -22,6 +23,7 @@ module.exports = {
       },
       backgroundImage: {
         'slide1': "url('/assets/brand_image.jpg')",
+        "techHeader":'url(/assets/TechnologiesHeader.png)'
       },
     },
     

@@ -134,6 +134,31 @@ export interface ITeamMember extends Entry<ITeamMemberFields> {
   };
 }
 
+export interface ITechnologysFields {
+  /** Image */
+  image?: Asset | undefined;
+
+  /** Title */
+  title?: string | undefined;
+}
+
+export interface ITechnologys extends Entry<ITechnologysFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "technologys";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IVideoFields {
   /** Title */
   title?: string | undefined;
@@ -164,6 +189,7 @@ export type CONTENT_TYPE =
   | "post"
   | "service"
   | "teamMember"
+  | "technologys"
   | "video";
 
 export type LOCALE_CODE = "en-US";

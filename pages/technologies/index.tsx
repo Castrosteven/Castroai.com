@@ -69,7 +69,7 @@ const Technologies: NextPage<props> = ({ technologys }) => {
                 </p>
               </div>
             </div>
-            <div className="md:w-1/2 ">
+            <div className="md:w-1/2 w-full ">
               <Art />
             </div>
           </div>
@@ -79,9 +79,8 @@ const Technologies: NextPage<props> = ({ technologys }) => {
       <section>
         <Section>
           <hr />
-
-          <div className="pt-10 pb-10">
-            <div className="grid md:grid-cols-4 grid-cols-2 gap-4 ">
+          <div className="pt-10 pb-10 flex justify-center items-center ">
+            <div className="grid md:grid-cols-4 grid-cols-2 gap-4 gap-y-4 h-80 ">
               {technologys.map((tech, index) => {
                 return <TechCard tech={tech} key={index} />;
               })}
@@ -93,8 +92,8 @@ const Technologies: NextPage<props> = ({ technologys }) => {
         <Section>
           <hr />
 
-          <div className="flex md:flex-row  flex-col-reverse h-full">
-            <div className="md:w-1/2 ">
+          <div className="flex md:flex-row  flex-col-reverse h-full w-full">
+            <div className="md:w-1/2 w-full ">
               <div className="w-full">
                 <Techs />
               </div>

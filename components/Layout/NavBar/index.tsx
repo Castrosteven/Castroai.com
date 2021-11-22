@@ -79,8 +79,8 @@ const NavBar = () => {
             );
           })}
           <Button>
-            <Link href={"#contact"} passHref>
-              CONTACT US
+            <Link href={"tel:8882754025"} passHref>
+             <a >Call us 888-275-4025</a>
             </Link>
           </Button>
         </ul>

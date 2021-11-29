@@ -5,7 +5,6 @@ const Services = () => {
   return (
     <Layout>
       <div>
-        <div className="pt-20 bg-gray-800"></div>
         <div className="container mx-auto">
           <h1>HELLO I AM SERVICES PAGE </h1>
         </div>

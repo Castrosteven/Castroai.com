@@ -16,6 +16,8 @@ const NavBar = () => {
     // { name: "TECHNOLOGIES", path: "#tech", logo: "" },
   ];
 
+  const NotInHome: boolean = router.pathname !== "/";
+
   if (router.pathname.includes("/blog")) {
     menuItems = [{ name: "BLOG", path: "/blog", logo: "" }];
   }
@@ -47,7 +49,7 @@ const NavBar = () => {
         nav
           ? "fixed bg-gray-800 transition duration-500 ease-in-out "
           : "absolute bg-transparent "
-      } h-20 top-0 left-0 z-50 w-full`}
+      } ${NotInHome ? "bg-gray-800" : " "} h-20 top-0 left-0 z-50 w-full`}
     >
       <div className="container h-full mx-auto flex items-center justify-between p-5  text-white  max-w-6xl">
         <Link href="/" passHref>
@@ -80,7 +82,7 @@ const NavBar = () => {
           })}
           <Button>
             <Link href={"tel:8882754025"} passHref>
-             <a >Call us 888-275-4025</a>
+              <a>Call us 888-275-4025</a>
             </Link>
           </Button>
         </ul>

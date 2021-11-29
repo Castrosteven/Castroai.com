@@ -13,6 +13,7 @@ import SlideShow from "../components/Landing/SlideShow";
 import ContactUsForm from "../components/Landing/ContactUsForm";
 import TechImage from "../assets/tech_image.png";
 import Section from "../components/Landing/Section";
+import ReactPlayer from "react-player";
 
 export const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID!,
@@ -65,6 +66,9 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
               WHO WE ARE
             </p>
           </div>
+          <div className="pt-10 pb-10 flex justify-center">
+            <ReactPlayer url="https://www.youtube.com/watch?v=ZUWsYg1QnmI" />
+          </div>
           <div className="text-center space-y-10">
             <p className="font-light leading-loose text-1xl text-darkGray ">
               <span className="font-BroLink text-black ">castroai LLC</span> was
@@ -76,6 +80,7 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
             </p>
           </div>
         </Section>
+
         <Section>
           <div className=" grid md:grid-cols-3 gap-4 items-center">
             {teamMembers.map((member, index) => {

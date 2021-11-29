@@ -53,7 +53,7 @@ const NavBar = () => {
     >
       <div className="container h-full mx-auto flex items-center justify-between p-5  text-white  max-w-6xl">
         <Link href="/" passHref>
-          <div className="flex items-center  ">
+          <div className="flex items-center cursor-pointer ">
             <Logo />
             <div className="text-white flex flex-col items-center brand">
               <span

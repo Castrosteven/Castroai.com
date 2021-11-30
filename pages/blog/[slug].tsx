@@ -106,8 +106,7 @@ const Post: NextPage<{ post: any }> = ({ post }) => {
   return (
     <Layout>
       <div className="container mx-auto">
-        <div className="pt-20 bg-gray-800"></div>
-        <div className={`bg-gray-100 p-10 container mx-auto`}>
+        <div className={`h-full p-10 container mx-auto`}>
           {documentToReactComponents(
             post.items[0].fields.content,
             renderOptions

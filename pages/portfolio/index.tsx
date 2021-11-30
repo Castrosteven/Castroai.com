@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Section from "../../components/Landing/Section";
 import Layout from "../../components/Layout/index";
 import Card from "../../components/Portoflio/Card";
@@ -40,8 +40,6 @@ const Portfolio = () => {
       return a;
     }
   };
-
-  // useEffect(() => {}, [currentState]);
 
   return (
     <Layout>

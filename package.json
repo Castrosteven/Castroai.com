@@ -16,6 +16,7 @@
     "@types/prismjs": "^1.16.6",
     "autoprefixer": "^10.4.0",
     "aws-amplify": "^4.3.5",
+    "axios": "^0.24.0",
     "contentful": "^9.1.4",
     "contentful-management": "^7.45.0",
     "dayjs": "^1.10.7",

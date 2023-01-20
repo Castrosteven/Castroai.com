@@ -6,8 +6,8 @@ const TeamMemberCard = ({ member }: { member: ITeamMember }) => {
   const { profilePicture, bio, name, position, linkedin } = member.fields;
   return (
     <div className="  h-full flex flex-col justify-between items-center  bg-gray-100 rounded-lg p-5 hover:shadow-lg ">
-      <div className="text-black p-2 rounded-lg bg-gray-100 flex flex-col justify-between space-y-4 text-center ">
-        <div>
+      <div className="text-black p-2 rounded-lg bg-gray-100 flex flex-col justify-between items-center space-y-4 text-center ">
+        <div className="flex items-center justify-center flex-col gap-2">
           <Image
             src={`https:${profilePicture.fields.file.url}`}
             alt={""}

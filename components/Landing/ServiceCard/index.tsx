@@ -11,7 +11,12 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
   return (
     <div className="bg-white rounded-lg h-full p-14 flex flex-col justify-betwen space-y-4 shadow-lg hover:shadow-2xl cursor-pointer ">
       <div className="">
-        <Image src={`https:${icon.fields.file.url}`} width={50} height={50} />
+        <Image
+          src={`https:${icon.fields.file.url}`}
+          width={50}
+          height={50}
+          alt="Image"
+        />
       </div>
       <div style={{ fontSize: 15 }} className="font-bold">
         {title}

@@ -160,12 +160,12 @@ const Home: NextPage<props> = ({ landingPage }) => {
       {/* Schedule */}
       <section
         id="schedule"
-        className="pt-10 pb-10 bg-gray-100"
+        className="pt-10 pb-10 bg-gray-100 p-5"
         style={{
-          height: "800px",
+          height: "1000px",
         }}
       >
-        <p className="text-3xl font-semibold text-center">
+        <p className="text-3xl font-semibold text-center pb-10">
           Free consultation. No strings attached
         </p>
         <InlineWidget

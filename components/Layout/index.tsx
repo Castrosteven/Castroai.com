@@ -1,8 +1,7 @@
-import { FC, useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./NavBar";
 import Background from "../../assets/background.png";
-const Layout: FC = ({ children }) => {
+const Layout = ({ children }) => {
   return (
     <div
       style={{

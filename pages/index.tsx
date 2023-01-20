@@ -6,7 +6,6 @@ import Link from "next/link";
 import { GetStaticProps } from "next";
 import { createClient } from "contentful";
 import Layout from "../components/Layout";
-import { IService, ITeamMember } from "../@types/generated/contentful";
 import ServiceCard from "../components/Landing/ServiceCard";
 import TeamMemberCard from "../components/Landing/TeamMemberCard";
 import SlideShow from "../components/Landing/SlideShow";
@@ -14,44 +13,64 @@ import ContactUsForm from "../components/Landing/ContactUsForm";
 import TechImage from "../assets/tech_image.png";
 import Section from "../components/Landing/Section";
 import ReactPlayer from "react-player";
-
-export const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID!,
-  accessToken: process.env.CONTENTFUL_TOKEN_ID!,
-});
+import { client } from "../hooks/useContentful";
+import { ILandingPage } from "../@types/generated/contentful";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { items: teamMembers } = await client.getEntries({
-    content_type: "teamMember",
-  });
-  const { items: services } = await client.getEntries({
-    content_type: "service",
+  const { items: landingPage } = await client.getEntries({
+    content_type: "landingPage",
   });
 
   return {
     props: {
-      teamMembers,
-      services,
+      landingPage: landingPage[0],
     },
     revalidate: 1,
   };
 };
 
 interface props {
-  teamMembers: ITeamMember[];
-  services: IService[];
+  landingPage: ILandingPage;
 }
 
 const pageTitle = "Castro AI LLC";
 
-const Home: NextPage<props> = ({ teamMembers, services }) => {
+const Home: NextPage<props> = ({ landingPage }) => {
   return (
     <Layout>
       {/* Main hero section */}
       <Head>
         <title>{pageTitle}</title>
       </Head>
-      <SlideShow />
+      {/* <SlideShow /> */}
+      <div className="h-full md:h-96 flex-col md:flex-row flex gap-40 mt-12 p-5  ">
+        <div className="flex flex-col gap-5 items-start justify-center">
+          <h1 className="text-3xl font-semibold ">
+            {landingPage.fields.heroHeading}
+          </h1>
+          <h2 className="text-1xl font-medium">
+            {landingPage.fields.heroSubTitle}
+          </h2>
+        </div>
+        <img src={landingPage.fields.heroImage.fields.file.url} alt="" />
+      </div>
+      {/* Techs Used */}
+      <div className="flex justify-evenly flex-wrap gap-5 items-center  mt-24 pl-5 pr-5">
+        {landingPage.fields.technologies.map((tech, index) => {
+          return (
+            <div key={index}>
+              <img
+                className="grayscale filter"
+                src={tech.fields.logo.fields.file.url}
+                alt=""
+                height="auto"
+                width={150}
+              />
+            </div>
+          );
+        })}
+      </div>
       {/* About */}
       <section
         className=" bg-white  flex flex-col justify-around items-center "
@@ -71,21 +90,16 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
           </div>
           <div className="text-center space-y-10">
             <p className="font-light leading-loose text-1xl text-darkGray ">
-              <span className="font-BroLink text-black ">castroai LLC</span> was
-              founded in 2021 in the state of New York. We are a team of
-              certified engenieers & designers with years of experience all
-              working towards the same goal. To deliver you and your business
-              with the highest quality product. We’ve already helped out many
-              new business in making their dreams come true. Now it’s your turn.
+              {documentToReactComponents(landingPage.fields.about.content[0])}
             </p>
           </div>
         </Section>
 
         <Section>
           <div className=" grid md:grid-cols-3 gap-4 items-center">
-            {teamMembers.map((member, index) => {
+            {/* {teamMembers.map((member, index) => {
               return <TeamMemberCard key={index} member={member} />;
-            })}
+            })} */}
           </div>
         </Section>
       </section>
@@ -102,9 +116,9 @@ const Home: NextPage<props> = ({ teamMembers, services }) => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 items-center  ">
-            {services.map((service, index) => {
+            {/* {services.map((service, index) => {
               return <ServiceCard key={index} service={service} />;
-            })}
+            })} */}
           </div>
         </Section>
       </section>

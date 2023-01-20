@@ -3,87 +3,24 @@
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
-export interface ICodeBlockFields {
-  /** Description */
-  description?: string | undefined;
-
-  /** Language */
-  language?: string | undefined;
-
-  /** Code */
-  code?: string | undefined;
-}
-
-export interface ICodeBlock extends Entry<ICodeBlockFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "codeBlock";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
-export interface IPostFields {
-  /** Title */
-  title: string;
-
-  /** subtext */
-  subtext: string;
-
-  /** slug */
-  slug?: string | undefined;
-
-  /** content */
-  content?: Document | undefined;
-
-  /** post_image */
-  postImage: Asset;
-}
-
-/** The Post Model */
-
-export interface IPost extends Entry<IPostFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "post";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
-export interface IServiceFields {
-  /** Name */
+export interface ICompanyInfoFields {
+  /** name */
   name: string;
-
-  /** slug */
-  slug: string;
 
   /** logo */
   logo: Asset;
 
-  /** description */
-  description: string;
+  /** phone number */
+  phoneNumber: string;
+
+  /** address */
+  address: string;
+
+  /** branding */
+  branding: string;
 }
 
-/** Service */
-
-export interface IService extends Entry<IServiceFields> {
+export interface ICompanyInfo extends Entry<ICompanyInfoFields> {
   sys: {
     id: string;
     type: string;
@@ -92,7 +29,7 @@ export interface IService extends Entry<IServiceFields> {
     locale: string;
     contentType: {
       sys: {
-        id: "service";
+        id: "companyInfo";
         linkType: "ContentType";
         type: "Link";
       };
@@ -100,24 +37,27 @@ export interface IService extends Entry<IServiceFields> {
   };
 }
 
-export interface ITeamMemberFields {
-  /** picture */
-  picture: Asset;
-
-  /** Name */
-  name: string;
-
-  /** Title */
+export interface ILandingPageFields {
+  /** title */
   title: string;
 
-  /** Description */
-  description: string;
+  /** Hero Heading */
+  heroHeading: string;
 
-  /** Link */
-  link: string;
+  /** Hero Sub Title */
+  heroSubTitle: string;
+
+  /** hero image */
+  heroImage: Asset;
+
+  /** technologies */
+  technologies: ITechnology[];
+
+  /** About  */
+  about: Document;
 }
 
-export interface ITeamMember extends Entry<ITeamMemberFields> {
+export interface ILandingPage extends Entry<ILandingPageFields> {
   sys: {
     id: string;
     type: string;
@@ -126,7 +66,7 @@ export interface ITeamMember extends Entry<ITeamMemberFields> {
     locale: string;
     contentType: {
       sys: {
-        id: "teamMember";
+        id: "landingPage";
         linkType: "ContentType";
         type: "Link";
       };
@@ -134,15 +74,15 @@ export interface ITeamMember extends Entry<ITeamMemberFields> {
   };
 }
 
-export interface ITechnologysFields {
-  /** Image */
-  image?: Asset | undefined;
+export interface ITechnologyFields {
+  /** name */
+  name: string;
 
-  /** Title */
-  title?: string | undefined;
+  /** logo */
+  logo: Asset;
 }
 
-export interface ITechnologys extends Entry<ITechnologysFields> {
+export interface ITechnology extends Entry<ITechnologyFields> {
   sys: {
     id: string;
     type: string;
@@ -151,7 +91,7 @@ export interface ITechnologys extends Entry<ITechnologysFields> {
     locale: string;
     contentType: {
       sys: {
-        id: "technologys";
+        id: "technology";
         linkType: "ContentType";
         type: "Link";
       };
@@ -159,38 +99,7 @@ export interface ITechnologys extends Entry<ITechnologysFields> {
   };
 }
 
-export interface IVideoFields {
-  /** Title */
-  title?: string | undefined;
-
-  /** Embed URL */
-  embedUrl?: string | undefined;
-}
-
-export interface IVideo extends Entry<IVideoFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "video";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
-export type CONTENT_TYPE =
-  | "codeBlock"
-  | "post"
-  | "service"
-  | "teamMember"
-  | "technologys"
-  | "video";
+export type CONTENT_TYPE = "companyInfo" | "landingPage" | "technology";
 
 export type LOCALE_CODE = "en-US";
 

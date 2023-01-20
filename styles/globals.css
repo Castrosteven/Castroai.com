@@ -16,10 +16,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
   font-family: Acumin, sans-serif;
-}
-html {
   background-image: url('../assets/background.png');
+
 }
+
 
 @layer base {
   @font-face {
@@ -47,9 +47,7 @@ html {
   line-height: 0.7;
 }
 
-.swiper-button-prev {
-  color: red;
-}
+
 :root {
   --swiper-theme-color: #ce4912 !important;
 }

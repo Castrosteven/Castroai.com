@@ -9,10 +9,12 @@ import ServiceCard from "../components/Landing/ServiceCard";
 import TeamMemberCard from "../components/Landing/TeamMemberCard";
 import ContactUsForm from "../components/Landing/ContactUsForm";
 import TechImage from "../assets/tech_image.png";
-import ReactPlayer from "react-player";
 import { client } from "../hooks/useContentful";
 import { ILandingPage } from "../@types/generated/contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import dynamic from "next/dynamic";
+const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
+import { InlineWidget } from "react-calendly";
 
 export const getStaticProps: GetStaticProps = async () => {
   const landingPage = await client.getEntry("1Khe7iXwdfd8tAfGPXubIJ");
@@ -38,7 +40,7 @@ const Home: NextPage<props> = ({ landingPage }) => {
         <title>{pageTitle}</title>
       </Head>
 
-      <div className="h-full md:h-96 flex-col md:flex-row flex gap-40 mt-12 p-5 container mx-auto max-w-7xl  ">
+      <div className="h-full md:h-96 flex-col md:flex-row flex gap-40 mt-32 p-5 container mx-auto max-w-7xl  ">
         <div className="flex flex-col gap-5 items-start justify-center">
           <h1 className="text-3xl font-semibold ">
             {landingPage.fields.heroHeading}
@@ -46,6 +48,17 @@ const Home: NextPage<props> = ({ landingPage }) => {
           <h2 className="text-1xl font-medium">
             {landingPage.fields.heroSubTitle}
           </h2>
+          <div className="flex items-center justify-center w-full">
+            <Link
+              href={"#schedule"}
+              style={{
+                backgroundColor: "#F36B1C",
+              }}
+              className="p-2 text-white rounded-md font-semibold"
+            >
+              Schedule a Free Consultation!
+            </Link>
+          </div>
         </div>
         <img src={landingPage.fields.heroImage.fields.file.url} alt="" />
       </div>
@@ -144,8 +157,27 @@ const Home: NextPage<props> = ({ landingPage }) => {
           </div>
         </div>
       </section>
+      {/* Schedule */}
+      <section
+        id="schedule"
+        className="pt-10 pb-10 bg-gray-100"
+        style={{
+          height: "800px",
+        }}
+      >
+        <p className="text-3xl font-semibold text-center">
+          Free consultation. No strings attached
+        </p>
+        <InlineWidget
+          url="https://calendly.com/castroai/30min"
+          styles={{
+            overflow: "hidden",
+            height: "100%",
+          }}
+        />
+      </section>
       {/* Contact */}
-      <section id="contact" className="bg-gray-100 pt-10 pb-10">
+      <section id="contact" className=" pt-10 pb-10">
         <div className="flex flex-col justify-center items-center h-full   ">
           <div className=" pb-10">
             <p style={{ fontSize: 32 }} className=" font-bold text-gray-800">

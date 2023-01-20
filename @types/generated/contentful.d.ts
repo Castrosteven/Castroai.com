@@ -53,8 +53,14 @@ export interface ILandingPageFields {
   /** technologies */
   technologies: ITechnology[];
 
+  /** Team Members */
+  teamMembers: ITeamMember[];
+
   /** About  */
   about: Document;
+
+  /** services */
+  services: IServices[];
 }
 
 export interface ILandingPage extends Entry<ILandingPageFields> {
@@ -67,6 +73,68 @@ export interface ILandingPage extends Entry<ILandingPageFields> {
     contentType: {
       sys: {
         id: "landingPage";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IServicesFields {
+  /** title */
+  title: string;
+
+  /** description */
+  description: Document;
+
+  /** icon */
+  icon: Asset;
+}
+
+export interface IServices extends Entry<IServicesFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "services";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface ITeamMemberFields {
+  /** name */
+  name: string;
+
+  /** linkedin */
+  linkedin: string;
+
+  /** profilePicture */
+  profilePicture: Asset;
+
+  /** position */
+  position: string;
+
+  /** bio */
+  bio: Document;
+}
+
+export interface ITeamMember extends Entry<ITeamMemberFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "teamMember";
         linkType: "ContentType";
         type: "Link";
       };
@@ -99,7 +167,12 @@ export interface ITechnology extends Entry<ITechnologyFields> {
   };
 }
 
-export type CONTENT_TYPE = "companyInfo" | "landingPage" | "technology";
+export type CONTENT_TYPE =
+  | "companyInfo"
+  | "landingPage"
+  | "services"
+  | "teamMember"
+  | "technology";
 
 export type LOCALE_CODE = "en-US";
 

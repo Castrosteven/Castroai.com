@@ -18,6 +18,7 @@ html {
   font-family: Acumin, sans-serif;
 }
 html {
+  background-image: url('../assets/background.png');
 }
 
 @layer base {
@@ -34,7 +35,7 @@ html {
     font-family: "Acumin";
     font-weight: normal;
     src: local("Acumin"), url("./fonts/Acumin-RPro.woff") format("woff");
-    font-display: ;
+    
   }
 }
 

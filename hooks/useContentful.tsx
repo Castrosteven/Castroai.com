@@ -21,7 +21,6 @@ export const useContentful = () => {
   useEffect(() => {
     fetchEntryById("companyInfo").then((res) => {
       const { fields } = res.items[0] as ICompanyInfo;
-      console.log(fields);
       setCompanyInfo(fields);
     });
   }, []);

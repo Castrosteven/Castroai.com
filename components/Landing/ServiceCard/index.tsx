@@ -1,24 +1,25 @@
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
-import { IService } from "../../../@types/generated/contentful";
+import { IServices } from "../../../@types/generated/contentful";
 
 interface ServiceCardProps {
-  service: IService;
+  service: IServices;
 }
 
 const ServiceCard = ({ service }: ServiceCardProps) => {
-  const { name, slug, logo, description } = service.fields;
-
-  const url = logo.fields.file.url;
+  const { description, title, icon } = service.fields;
   return (
-    <div className="bg-white rounded-lg h-full p-14 flex flex-col justify-betwen space-y-4 hover:shadow-lg ">
+    <div className="bg-white rounded-lg h-full p-14 flex flex-col justify-betwen space-y-4 shadow-lg hover:shadow-2xl cursor-pointer ">
       <div className="">
-        <Image src={`https:${url}`} width={50} height={50} alt={`${name}`} />
+        <Image src={`https:${icon.fields.file.url}`} width={50} height={50} />
       </div>
       <div style={{ fontSize: 15 }} className="font-bold">
-        {name.toUpperCase()}
+        {title}
       </div>
       <div>
-        <span style={{ fontSize: 13 }}>{description}</span>
+        <span style={{ fontSize: 13 }}>
+          {documentToReactComponents(description)}
+        </span>
       </div>
     </div>
   );

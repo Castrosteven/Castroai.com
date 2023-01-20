@@ -1,12 +1,19 @@
 import { FC, useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./NavBar";
-
+import Background from "../../assets/background.png";
 const Layout: FC = ({ children }) => {
   return (
-    <div className=" ">
+    <div
+      style={{
+        backgroundImage: `url(require("../../assets/background.png"))`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "repeat",
+      }}
+    >
       <Navbar />
-      <main className={`container mx-auto max-w-7xl`}>{children}</main>
+      <main className={``}>{children}</main>
       <Footer />
     </div>
   );

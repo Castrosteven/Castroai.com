@@ -3,87 +3,24 @@
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
-export interface ICodeBlockFields {
-  /** Description */
-  description?: string | undefined;
-
-  /** Language */
-  language?: string | undefined;
-
-  /** Code */
-  code?: string | undefined;
-}
-
-export interface ICodeBlock extends Entry<ICodeBlockFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "codeBlock";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
-export interface IPostFields {
-  /** Title */
-  title: string;
-
-  /** subtext */
-  subtext: string;
-
-  /** slug */
-  slug?: string | undefined;
-
-  /** content */
-  content?: Document | undefined;
-
-  /** post_image */
-  postImage: Asset;
-}
-
-/** The Post Model */
-
-export interface IPost extends Entry<IPostFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "post";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
-export interface IServiceFields {
-  /** Name */
+export interface ICompanyInfoFields {
+  /** name */
   name: string;
-
-  /** slug */
-  slug: string;
 
   /** logo */
   logo: Asset;
 
-  /** description */
-  description: string;
+  /** phone number */
+  phoneNumber: string;
+
+  /** address */
+  address: string;
+
+  /** branding */
+  branding: string;
 }
 
-/** Service */
-
-export interface IService extends Entry<IServiceFields> {
+export interface ICompanyInfo extends Entry<ICompanyInfoFields> {
   sys: {
     id: string;
     type: string;
@@ -92,7 +29,78 @@ export interface IService extends Entry<IServiceFields> {
     locale: string;
     contentType: {
       sys: {
-        id: "service";
+        id: "companyInfo";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface ILandingPageFields {
+  /** title */
+  title: string;
+
+  /** Hero Heading */
+  heroHeading: string;
+
+  /** Hero Sub Title */
+  heroSubTitle: string;
+
+  /** hero image */
+  heroImage: Asset;
+
+  /** technologies */
+  technologies: ITechnology[];
+
+  /** Team Members */
+  teamMembers: ITeamMember[];
+
+  /** About  */
+  about: Document;
+
+  /** services */
+  services: IServices[];
+}
+
+export interface ILandingPage extends Entry<ILandingPageFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "landingPage";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IServicesFields {
+  /** title */
+  title: string;
+
+  /** description */
+  description: Document;
+
+  /** icon */
+  icon: Asset;
+}
+
+export interface IServices extends Entry<IServicesFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "services";
         linkType: "ContentType";
         type: "Link";
       };
@@ -101,20 +109,20 @@ export interface IService extends Entry<IServiceFields> {
 }
 
 export interface ITeamMemberFields {
-  /** picture */
-  picture: Asset;
-
-  /** Name */
+  /** name */
   name: string;
 
-  /** Title */
-  title: string;
+  /** linkedin */
+  linkedin: string;
 
-  /** Description */
-  description: string;
+  /** profilePicture */
+  profilePicture: Asset;
 
-  /** Link */
-  link: string;
+  /** position */
+  position: string;
+
+  /** bio */
+  bio: Document;
 }
 
 export interface ITeamMember extends Entry<ITeamMemberFields> {
@@ -134,15 +142,15 @@ export interface ITeamMember extends Entry<ITeamMemberFields> {
   };
 }
 
-export interface ITechnologysFields {
-  /** Image */
-  image?: Asset | undefined;
+export interface ITechnologyFields {
+  /** name */
+  name: string;
 
-  /** Title */
-  title?: string | undefined;
+  /** logo */
+  logo: Asset;
 }
 
-export interface ITechnologys extends Entry<ITechnologysFields> {
+export interface ITechnology extends Entry<ITechnologyFields> {
   sys: {
     id: string;
     type: string;
@@ -151,32 +159,7 @@ export interface ITechnologys extends Entry<ITechnologysFields> {
     locale: string;
     contentType: {
       sys: {
-        id: "technologys";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
-export interface IVideoFields {
-  /** Title */
-  title?: string | undefined;
-
-  /** Embed URL */
-  embedUrl?: string | undefined;
-}
-
-export interface IVideo extends Entry<IVideoFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "video";
+        id: "technology";
         linkType: "ContentType";
         type: "Link";
       };
@@ -185,12 +168,11 @@ export interface IVideo extends Entry<IVideoFields> {
 }
 
 export type CONTENT_TYPE =
-  | "codeBlock"
-  | "post"
-  | "service"
+  | "companyInfo"
+  | "landingPage"
+  | "services"
   | "teamMember"
-  | "technologys"
-  | "video";
+  | "technology";
 
 export type LOCALE_CODE = "en-US";
 

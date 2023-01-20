@@ -1,15 +1,15 @@
 import { ITeamMember } from "../../../@types/generated/contentful";
 import Linkedin from "./linkedin.svg";
 import Image from "next/image";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 const TeamMemberCard = ({ member }: { member: ITeamMember }) => {
-  const { description, link, name, picture, title } = member.fields;
-  const { fields } = picture;
+  const { profilePicture, bio, name, position, linkedin } = member.fields;
   return (
     <div className="  h-full flex flex-col justify-between items-center  bg-gray-100 rounded-lg p-5 hover:shadow-lg ">
       <div className="text-black p-2 rounded-lg bg-gray-100 flex flex-col justify-between space-y-4 text-center ">
         <div>
           <Image
-            src={`https:${fields.file.url}`}
+            src={`https:${profilePicture.fields.file.url}`}
             alt={""}
             width={150}
             height={150}
@@ -20,14 +20,14 @@ const TeamMemberCard = ({ member }: { member: ITeamMember }) => {
             {name.toUpperCase()}
           </p>
           {/* TITLE */}
-          <span style={{ fontSize: 15 }}>{title}</span>
+          <span style={{ fontSize: 15 }}>{position}</span>
         </div>
         <div style={{ fontSize: 15 }} className="font-darkGray text-darkGray ">
-          {description}
+          {documentToReactComponents(bio)}
         </div>
       </div>
       <div className="flex">
-        <a href={link} target={"_blank"} rel="noreferrer">
+        <a href={linkedin} target={"_blank"} rel="noreferrer">
           <Linkedin height={25} width={25} />
         </a>
       </div>

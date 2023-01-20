@@ -5,8 +5,10 @@ import Button from "../Button";
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useApp } from "../../../context/AppContext";
 
 const NavBar = () => {
+  const { companyInfo } = useApp();
   const router = useRouter();
 
   let menuItems = [
@@ -44,26 +46,20 @@ const NavBar = () => {
   }, [handleScroll]);
 
   return (
-    <header
-      className={`${
-        nav
-          ? "fixed bg-gray-800 transition duration-500 ease-in-out "
-          : "absolute bg-transparent "
-      } ${NotInHome ? "bg-gray-800" : " "} h-20 top-0 left-0 z-50 w-full`}
-    >
-      <div className="container h-full mx-auto flex items-center justify-between p-5  text-white  max-w-6xl">
+    <header>
+      <div className="container h-full mx-auto flex items-center justify-between p-5 text-gray-800  max-w-7xl">
         <Link href="/" passHref>
           <div className="flex items-center cursor-pointer ">
             <Logo />
-            <div className="text-white flex flex-col items-center brand">
+            <div className="text-gray-800 flex flex-col items-center brand">
               <span
                 style={{ fontSize: 22, lineHeight: 1.2 }}
                 className="font-BroLink"
               >
-                castro ai
+                {companyInfo && companyInfo.name}
               </span>
               <span style={{ fontSize: 12 }} className="">
-                Software Development Company
+                {companyInfo && companyInfo.branding}
               </span>
             </div>
           </div>
@@ -81,9 +77,11 @@ const NavBar = () => {
             );
           })}
           <Button>
-            <Link href={"tel:8882754025"} passHref>
-              <a>Call us 888-275-4025</a>
-            </Link>
+            {companyInfo && (
+              <Link href={`tel:${companyInfo.phoneNumber}`} passHref>
+                <a href="">Call now</a>
+              </Link>
+            )}
           </Button>
         </ul>
         <button

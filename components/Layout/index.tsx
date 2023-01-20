@@ -1,23 +1,19 @@
 import { FC, useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./NavBar";
-import Script from "next/script";
-import { useRouter } from "next/router";
-
+import Background from "../../assets/background.png";
 const Layout: FC = ({ children }) => {
-  const router = useRouter();
-  const NotInHome: boolean = router.pathname !== "/";
-
   return (
-    <div className=" ">
+    <div
+      style={{
+        backgroundImage: `url(require("../../assets/background.png"))`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "repeat",
+      }}
+    >
       <Navbar />
-      <main className={` ${NotInHome ? "mt-20" : " "}`}>{children}</main>
-      <Script
-        async
-        id="slcLiveChat"
-        src="https://widget.sonetel.com/SonetelWidget.min.js"
-        data-account-id="207850791"
-      ></Script>
+      <main className={``}>{children}</main>
       <Footer />
     </div>
   );

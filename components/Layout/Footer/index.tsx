@@ -1,4 +1,11 @@
+import Link from "next/link";
+import { useApp } from "../../../context/AppContext";
+
 const Footer = () => {
+  const { companyInfo } = useApp();
+  if (!companyInfo) {
+    return null;
+  }
   return (
     <footer className=" text-white bg-gray-800 p-5">
       <div className="container mx-auto max-w-7xl flex flex-col md:flex-row justify-between h-full space-y-6 ">
@@ -7,29 +14,37 @@ const Footer = () => {
             <li>About us</li>
             <li>Contact us</li>
             <li>Legal</li>
-            <li>Carrers</li>
+            <li>Careers</li>
           </ul>
         </div>
         <div>
           <ul>
-            <li>980 6th Ave New York,NY 10018</li>
+            <li>{companyInfo.fields.address}</li>
             <li>
-              <a href="tel:8882754025">888-275-4025</a>
+              <Link href={`tel:${companyInfo.fields.phoneNumber}`}>
+                {companyInfo.fields.phoneNumber}
+              </Link>
             </li>
-            <li>hello@castroai.com</li>
+            <Link href={`mailto:stevenc@castroai.com`}>
+              stevenc@castroai.com
+            </Link>
           </ul>
         </div>
         <div>
           <ul>
-            <li>facebook</li>
-            <li>instagram</li>
-            <li>twitter</li>
-            <li>medium</li>
+            {companyInfo &&
+              companyInfo.fields.socialMediaLinks.map((link, index) => {
+                return (
+                  <li key={index}>
+                    <Link href={link.fields.link}>{link.fields.title}</Link>
+                  </li>
+                );
+              })}
           </ul>
         </div>
         <div className="  ">
-          <span className="font-BroLink">castroai LLC</span> <br />
-          <span className="text-xs ">&copy; 2021</span>
+          <span className="font-BroLink">{companyInfo.fields.name}</span> <br />
+          <span className="text-xs ">&copy; {new Date().getFullYear()}</span>
         </div>
       </div>
     </footer>

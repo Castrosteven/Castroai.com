@@ -18,6 +18,18 @@ export interface ICompanyInfoFields {
 
   /** branding */
   branding: string;
+
+  /** SEO_TITLE */
+  seoTitle: string;
+
+  /** SEO_DESCRIPTION */
+  seoDescription: string;
+
+  /** SEO_KEYWORDS */
+  seoKeywords: string[];
+
+  /** social media links */
+  socialMediaLinks: ISocialMediaLink[];
 }
 
 export interface ICompanyInfo extends Entry<ICompanyInfoFields> {
@@ -61,6 +73,12 @@ export interface ILandingPageFields {
 
   /** services */
   services: IServices[];
+
+  /** How we work Image */
+  howWeWorkImage: Asset;
+
+  /** How We Work */
+  howWeWork: Document;
 }
 
 export interface ILandingPage extends Entry<ILandingPageFields> {
@@ -101,6 +119,31 @@ export interface IServices extends Entry<IServicesFields> {
     contentType: {
       sys: {
         id: "services";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface ISocialMediaLinkFields {
+  /** title */
+  title: string;
+
+  /** link */
+  link: string;
+}
+
+export interface ISocialMediaLink extends Entry<ISocialMediaLinkFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "socialMediaLink";
         linkType: "ContentType";
         type: "Link";
       };
@@ -171,8 +214,17 @@ export type CONTENT_TYPE =
   | "companyInfo"
   | "landingPage"
   | "services"
+  | "socialMediaLink"
   | "teamMember"
   | "technology";
+
+export type IEntry =
+  | ICompanyInfo
+  | ILandingPage
+  | IServices
+  | ISocialMediaLink
+  | ITeamMember
+  | ITechnology;
 
 export type LOCALE_CODE = "en-US";
 

@@ -16,7 +16,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
   font-family: Acumin, sans-serif;
-  background-image: url('../assets/background.png');
+  background-color: '#f1f1f1';
 
 }
 

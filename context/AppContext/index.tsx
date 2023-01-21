@@ -1,9 +1,13 @@
+import { Entry } from "contentful";
 import { createContext, ReactNode, useContext } from "react";
-import { ICompanyInfoFields } from "../../@types/generated/contentful";
+import {
+  ICompanyInfo,
+  ICompanyInfoFields,
+} from "../../@types/generated/contentful";
 import { useContentful } from "../../hooks/useContentful";
 
 interface IContext {
-  companyInfo: ICompanyInfoFields | null;
+  companyInfo: Entry<ICompanyInfoFields> | null;
 }
 const Context = createContext<IContext>({} as IContext);
 export const AppContext = ({ children }: { children: ReactNode }) => {

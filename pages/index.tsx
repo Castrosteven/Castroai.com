@@ -10,7 +10,7 @@ import TeamMemberCard from "../components/Landing/TeamMemberCard";
 import ContactUsForm from "../components/Landing/ContactUsForm";
 import TechImage from "../assets/tech_image.png";
 import { client } from "../hooks/useContentful";
-import { ILandingPage } from "../@types/generated/contentful";
+import { ICompanyInfo, ILandingPage } from "../@types/generated/contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import dynamic from "next/dynamic";
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
@@ -18,10 +18,11 @@ import { InlineWidget } from "react-calendly";
 
 export const getStaticProps: GetStaticProps = async () => {
   const landingPage = await client.getEntry("1Khe7iXwdfd8tAfGPXubIJ");
-
+  const companyInfo = await client.getEntry("5wnChLnxbWk6mhsTQP11Kl");
   return {
     props: {
       landingPage: landingPage,
+      companyInfo: companyInfo,
     },
     revalidate: 1,
   };
@@ -29,15 +30,19 @@ export const getStaticProps: GetStaticProps = async () => {
 
 interface props {
   landingPage: ILandingPage;
+  companyInfo: ICompanyInfo;
 }
 
-const pageTitle = "Castro AI LLC";
-
-const Home: NextPage<props> = ({ landingPage }) => {
+const Home: NextPage<props> = ({ landingPage, companyInfo }) => {
   return (
     <Layout>
       <Head>
-        <title>{pageTitle}</title>
+        <title>{companyInfo.fields.seoTitle}</title>
+        <meta name="description" content={companyInfo.fields.seoDescription} />
+        <meta
+          name="kewords"
+          content={companyInfo.fields.seoKeywords.join(",")}
+        />
       </Head>
 
       <div className="h-full md:h-96 flex-col md:flex-row flex gap-40 mt-32 p-5 container mx-auto max-w-7xl  ">
@@ -60,7 +65,10 @@ const Home: NextPage<props> = ({ landingPage }) => {
             </Link>
           </div>
         </div>
-        <img src={landingPage.fields.heroImage.fields.file.url} alt="" />
+        <img
+          src={landingPage.fields.heroImage.fields.file.url}
+          alt="Software Development Company"
+        />
       </div>
       {/* Techs Used */}
       <div className="bg-gray-100 h-full  ">
@@ -71,7 +79,7 @@ const Home: NextPage<props> = ({ landingPage }) => {
                 <img
                   className=" filter grayscale opacity-100"
                   src={tech.fields.logo.fields.file.url}
-                  alt=""
+                  alt={tech.fields.logo.fields.title}
                   height="auto"
                   width={150}
                 />
@@ -89,7 +97,7 @@ const Home: NextPage<props> = ({ landingPage }) => {
           style={{ fontSize: 32 }}
           className=" font-bold text-CdarkBlue text-center"
         >
-          WHO WE ARE
+          Why us ?
         </p>
         <div className=" flex justify-center">
           <ReactPlayer url="https://www.youtube.com/watch?v=ZUWsYg1QnmI" />
@@ -113,7 +121,7 @@ const Home: NextPage<props> = ({ landingPage }) => {
               style={{ fontSize: 32 }}
               className="font-bold text-CdarkBlue text-center"
             >
-              SERVICES
+              Some of the services we offer
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 items-center mt-10  ">
@@ -134,22 +142,21 @@ const Home: NextPage<props> = ({ landingPage }) => {
               style={{ fontSize: 32 }}
               className=" font-bold text-CdarkBlue   text-center "
             >
-              THE TECH STACK
+              Yes we are agile!
             </p>
           </div>
           <div className="md:w-1/2">
-            <Image src={TechImage} alt="Tech" className="rounded-sm" />
+            <img
+              src={landingPage.fields.howWeWorkImage.fields.file.url}
+              alt="Tech"
+              className="rounded-sm"
+            />
           </div>
           <div className="text-center md:w-1/2 md:p-5">
             <div>
-              <p className="text-left md:text-center">
-                Build your software leveraging the latest technological
-                improvements and breakthroughs. Whether you are looking for a
-                mobile, tablet, desktop, or cross-platform software suite,
-                CASTRO AI can help you build a comprehensive solution that will
-                cater to your business needs and help you achieve your key
-                objectives.
-              </p>
+              <div className="text-left md:text-center">
+                {documentToReactComponents(landingPage.fields.howWeWork)}
+              </div>
             </div>
             <button className="bg-CdarkOrange text-white p-2 rounded-lg">
               <Link href={"/technologies"}>Read More</Link>

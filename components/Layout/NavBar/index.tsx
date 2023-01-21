@@ -9,6 +9,7 @@ const NavBar = () => {
   let menuItems = [
     { name: "ABOUT US", path: "#about", logo: "" },
     { name: "SERVICES", path: "#services", logo: "" },
+    { name: "SCHEDULE", path: "#schedule", logo: "" },
   ];
   const handleScroll = useCallback(() => {
     if (window.scrollY > 100) {
@@ -45,10 +46,10 @@ const NavBar = () => {
                 style={{ fontSize: 22, lineHeight: 1.2 }}
                 className="font-BroLink"
               >
-                {companyInfo && companyInfo.name}
+                {companyInfo && companyInfo.fields.name}
               </span>
               <span style={{ fontSize: 12 }} className="">
-                {companyInfo && companyInfo.branding}
+                {companyInfo && companyInfo.fields.branding}
               </span>
             </div>
           </div>
@@ -65,7 +66,7 @@ const NavBar = () => {
           })}
           {companyInfo && (
             <Link
-              href={`tel:${companyInfo.phoneNumber}`}
+              href={`tel:${companyInfo.fields.phoneNumber}`}
               passHref
               style={{
                 backgroundColor: "#F36B1C",

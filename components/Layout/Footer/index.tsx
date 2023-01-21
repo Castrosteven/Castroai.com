@@ -36,7 +36,9 @@ const Footer = () => {
               companyInfo.fields.socialMediaLinks.map((link, index) => {
                 return (
                   <li key={index}>
-                    <Link href={link.fields.link}>{link.fields.title}</Link>
+                    <Link target={"_blank"} href={link.fields.link}>
+                      {link.fields.title}
+                    </Link>
                   </li>
                 );
               })}

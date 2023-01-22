@@ -1,14 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import React from "react";
 import Link from "next/link";
 import { GetStaticProps } from "next";
 import Layout from "../components/Layout";
 import ServiceCard from "../components/Landing/ServiceCard";
 import TeamMemberCard from "../components/Landing/TeamMemberCard";
 import ContactUsForm from "../components/Landing/ContactUsForm";
-import TechImage from "../assets/tech_image.png";
 import { client } from "../hooks/useContentful";
 import { ICompanyInfo, ILandingPage } from "../@types/generated/contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";

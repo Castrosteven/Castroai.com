@@ -42,7 +42,7 @@ const Home: NextPage<props> = ({ landingPage, companyInfo }) => {
         />
       </Head>
 
-      <div className="h-full md:h-96 flex-col md:flex-row flex gap-40 mt-32 p-5 container mx-auto max-w-7xl  ">
+      <div className="h-full md:h-96 flex-col md:flex-row flex gap-40 mt-10 p-5 container mx-auto max-w-7xl  ">
         <div className="flex flex-col gap-5 items-start justify-center">
           <h1 className="text-3xl font-semibold ">
             {landingPage.fields.heroHeading}

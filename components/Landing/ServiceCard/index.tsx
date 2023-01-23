@@ -9,7 +9,7 @@ interface ServiceCardProps {
 const ServiceCard = ({ service }: ServiceCardProps) => {
   const { description, title, icon } = service.fields;
   return (
-    <div className="bg-white rounded-lg h-full p-14 flex flex-col justify-betwen space-y-4 shadow-lg hover:shadow-2xl cursor-pointer ">
+    <div className="prose bg-white rounded-lg h-full p-14 flex flex-col justify-betwen space-y-4 shadow-lg hover:shadow-2xl cursor-pointer ">
       <div className="">
         <Image
           src={`https:${icon.fields.file.url}`}

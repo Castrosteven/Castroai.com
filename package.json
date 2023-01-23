@@ -22,12 +22,17 @@
     "prismjs": "^1.25.0",
     "react": "18.2.0",
     "react-calendly": "^4.1.1",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",
-    "react-player": "^2.9.0"
+    "react-player": "^2.9.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "twin.macro": "^3.1.0"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
+    "@types/react-syntax-highlighter": "^15.5.6",
     "autoprefixer": "^10.4.13",
     "contentful-typescript-codegen": "^3.2.3",
     "dotenv": "^16.0.3",

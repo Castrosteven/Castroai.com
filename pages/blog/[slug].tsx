@@ -3,48 +3,49 @@ import Head from "next/head";
 import { IBlogPost, IBlogPostFields } from "../../@types/generated/contentful";
 import { client } from "../../hooks/useContentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+
 import Layout from "../../components/Layout";
-import { BLOCKS, Document } from "@contentful/rich-text-types";
-import { Asset } from "contentful";
+import { BLOCKS } from "@contentful/rich-text-types";
 import Image from "next/image";
-function paragraphClass(node) {
-  const className = "odd";
-  //alternate logic for 'odd' | 'even'
-  return className;
-}
+import ContactUsForm from "../../components/Landing/ContactUsForm";
 
 const options = {
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => (
-      <p className={paragraphClass(node)}>{children}</p>
-    ),
     [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
       return (
-        <div>
-          <p>{node.data.target.fields.file.url}</p>
-          <Image
-            src={`https:${node.data.target.fields.file.url}`}
-            height={node.data.target.fields.file.details.image.height}
-            width={node.data.target.fields.file.details.image.width}
-            alt={"Image"}
-          />
-        </div>
+        <Image
+          src={`https:${node.data.target.fields.file.url}`}
+          height={node.data.target.fields.file.details.image.height}
+          width={node.data.target.fields.file.details.image.width}
+          alt={"Image"}
+        />
       );
     },
   },
 };
+
 const BlogPost = ({ post }: { post: IBlogPost }) => {
   return (
     <Layout>
       <Head>
         <title>{post.fields.title}</title>
       </Head>
-      <div className="mt-20 container mx-auto max-w-7xl">
+      <div className="mt-20 mb-20 container mx-auto max-w-7xl prose">
         <div>
-          <p className="text-3xl font-semibold">{post.fields.title}</p>
+          <h1 className="text-center">{post.fields.title}</h1>
         </div>
         <div>{documentToReactComponents(post.fields.post, options)}</div>
       </div>
+      <hr />
+      <section className="mx-auto container justify-center flex  mt-20 mb-20">
+        <div className="w-1/2">
+          <div className="text-center">
+            <h2>Send us a message</h2>
+            <h1>Free CONSULTATION!</h1>
+          </div>
+          <ContactUsForm />
+        </div>
+      </section>
     </Layout>
   );
 };

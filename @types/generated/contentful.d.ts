@@ -27,6 +27,12 @@ export interface IBlogPostFields {
 
   /** External Url */
   externalUrl?: string | undefined;
+
+  /** Hero */
+  hero?: IHeroBanner | undefined;
+
+  /** Card Image */
+  cardImage: Asset;
 }
 
 /** A blog post. */

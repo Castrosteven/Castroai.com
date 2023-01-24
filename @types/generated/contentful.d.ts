@@ -4,15 +4,32 @@ import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
 export interface IBlogPostFields {
+  /** Date */
+  date: string;
+
   /** Title */
   title: string;
 
-  /** slug */
-  slug?: string | undefined;
+  /** Slug */
+  slug: string;
 
-  /** post */
-  post: Document;
+  /** Author */
+  author?: IPerson | undefined;
+
+  /** Excerpt */
+  excerpt: string;
+
+  /** Tags */
+  tags?: string[] | undefined;
+
+  /** Body */
+  body: Document;
+
+  /** External Url */
+  externalUrl?: string | undefined;
 }
+
+/** A blog post. */
 
 export interface IBlogPost extends Entry<IBlogPostFields> {
   sys: {
@@ -24,6 +41,47 @@ export interface IBlogPost extends Entry<IBlogPostFields> {
     contentType: {
       sys: {
         id: "blogPost";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface ICodeBlockFields {
+  /** Description */
+  description?: string | undefined;
+
+  /** Language */
+  language:
+    | "javascript"
+    | "css"
+    | "scss"
+    | "markdown"
+    | "graphql"
+    | "react-jsx"
+    | "react-tsx"
+    | "bash-shell"
+    | "git"
+    | "typescript"
+    | "markup";
+
+  /** Code */
+  code: string;
+}
+
+/** A block of code in a specified language. */
+
+export interface ICodeBlock extends Entry<ICodeBlockFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "codeBlock";
         linkType: "ContentType";
         type: "Link";
       };
@@ -77,6 +135,48 @@ export interface ICompanyInfo extends Entry<ICompanyInfoFields> {
   };
 }
 
+export interface IHeroBannerFields {
+  /** Name */
+  name: string;
+
+  /** Image */
+  image: Asset;
+
+  /** Headline */
+  headline?: string | undefined;
+
+  /** Sub Heading */
+  subHeading?: string | undefined;
+
+  /** CTA Text */
+  ctaText?: string | undefined;
+
+  /** External Link */
+  externalLink?: string | undefined;
+
+  /** Internal Link */
+  internalLink?: string | undefined;
+}
+
+/** An element that can be displayed at the top of a page or blog post. */
+
+export interface IHeroBanner extends Entry<IHeroBannerFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "heroBanner";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface ILandingPageFields {
   /** title */
   title: string;
@@ -107,6 +207,9 @@ export interface ILandingPageFields {
 
   /** How We Work */
   howWeWork: Document;
+
+  /** slug */
+  slug?: string | undefined;
 }
 
 export interface ILandingPage extends Entry<ILandingPageFields> {
@@ -119,6 +222,84 @@ export interface ILandingPage extends Entry<ILandingPageFields> {
     contentType: {
       sys: {
         id: "landingPage";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IPageContentFields {
+  /** Hero Banner */
+  heroBanner?: IHeroBanner | undefined;
+
+  /** Title */
+  title?: string | undefined;
+
+  /** Description */
+  description?: string | undefined;
+
+  /** Slug */
+  slug?: string | undefined;
+
+  /** Body */
+  body?: Document | undefined;
+}
+
+/** A blob of content to display on a specified page. */
+
+export interface IPageContent extends Entry<IPageContentFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "pageContent";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IPersonFields {
+  /** Image */
+  image: Asset;
+
+  /** Name */
+  name: string;
+
+  /** Description */
+  description: string;
+
+  /** Twitter Username */
+  twitterUsername?: string | undefined;
+
+  /** GitHub Username */
+  gitHubUsername?: string | undefined;
+
+  /** Twitch Username */
+  twitchUsername?: string | undefined;
+
+  /** Website URL */
+  websiteUrl?: string | undefined;
+}
+
+/** A person with a name, image, description and social links. */
+
+export interface IPerson extends Entry<IPersonFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "person";
         linkType: "ContentType";
         type: "Link";
       };
@@ -238,23 +419,60 @@ export interface ITechnology extends Entry<ITechnologyFields> {
   };
 }
 
+export interface IVideoEmbedFields {
+  /** Title */
+  title: string;
+
+  /** Embed URL */
+  embedUrl: string;
+}
+
+/** A video entry to embed in page content or a blog post. */
+
+export interface IVideoEmbed extends Entry<IVideoEmbedFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "videoEmbed";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export type CONTENT_TYPE =
   | "blogPost"
+  | "codeBlock"
   | "companyInfo"
+  | "heroBanner"
   | "landingPage"
+  | "pageContent"
+  | "person"
   | "services"
   | "socialMediaLink"
   | "teamMember"
-  | "technology";
+  | "technology"
+  | "videoEmbed";
 
 export type IEntry =
   | IBlogPost
+  | ICodeBlock
   | ICompanyInfo
+  | IHeroBanner
   | ILandingPage
+  | IPageContent
+  | IPerson
   | IServices
   | ISocialMediaLink
   | ITeamMember
-  | ITechnology;
+  | ITechnology
+  | IVideoEmbed;
 
 export type LOCALE_CODE = "en-US";
 

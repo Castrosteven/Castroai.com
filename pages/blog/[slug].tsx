@@ -2,15 +2,30 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { IBlogPost, IBlogPostFields } from "../../@types/generated/contentful";
 import { client } from "../../hooks/useContentful";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import {
+  documentToReactComponents,
+  Options,
+} from "@contentful/rich-text-react-renderer";
 
 import Layout from "../../components/Layout";
-import { BLOCKS } from "@contentful/rich-text-types";
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import Image from "next/image";
 import ContactUsForm from "../../components/Landing/ContactUsForm";
 
-const options = {
+export const options: Options = {
   renderNode: {
+    [INLINES.EMBEDDED_ENTRY]: (node, children) => {
+      // target the contentType of the EMBEDDED_ENTRY to display as you need
+      if (node.data.target.sys.contentType.sys.id === "blogPost") {
+        return (
+          <a href={`/blog/${node.data.target.fields.slug}`}>
+            {" "}
+            {node.data.target.fields.title}
+          </a>
+        );
+      }
+    },
+
     [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
       return (
         <Image
@@ -20,6 +35,30 @@ const options = {
           alt={"Image"}
         />
       );
+    },
+    [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
+      // target the contentType of the EMBEDDED_ENTRY to display as you need
+      if (node.data.target.sys.contentType.sys.id === "codeBlock") {
+        return (
+          <pre>
+            <code>{node.data.target.fields.code}</code>
+          </pre>
+        );
+      }
+
+      if (node.data.target.sys.contentType.sys.id === "videoEmbed") {
+        return (
+          <iframe
+            src={node.data.target.fields.embedUrl}
+            height="100%"
+            width="100%"
+            frameBorder="0"
+            scrolling="no"
+            title={node.data.target.fields.title}
+            allowFullScreen={true}
+          />
+        );
+      }
     },
   },
 };
@@ -34,7 +73,7 @@ const BlogPost = ({ post }: { post: IBlogPost }) => {
         <div>
           <h1 className="text-center">{post.fields.title}</h1>
         </div>
-        <div>{documentToReactComponents(post.fields.post, options)}</div>
+        <div>{documentToReactComponents(post.fields.body, options)}</div>
       </div>
       <hr />
       <section className="mx-auto container justify-center flex  mt-20 mb-20">

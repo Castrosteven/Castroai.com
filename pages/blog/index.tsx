@@ -1,10 +1,9 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { GetStaticProps } from "next";
-import Link from "next/link";
 import { IPageContent } from "../../@types/generated/contentful";
 import Layout from "../../components/Layout";
 import { client } from "../../hooks/useContentful";
-import { options } from "./[slug]";
+import { options } from "../../utils/documentRenderOption";
 
 const Blog = ({ blogPosts }: { blogPosts: IPageContent }) => {
   return (

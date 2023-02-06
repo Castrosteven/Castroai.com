@@ -1,15 +1,15 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import {
   IPageContent,
   IPageContentFields,
-} from "../@types/generated/contentful";
-import Layout from "../components/Layout";
-import { client } from "../hooks/useContentful";
-import { options } from "../utils/documentRenderOption";
+} from "../../@types/generated/contentful";
+import Layout from "../../components/Layout";
+import { client } from "../../hooks/useContentful";
+import { options } from "../../utils/documentRenderOption";
 
-const Page = ({ page }: { page: IPageContent }) => {
+const ServicePage = ({ page }: { page: IPageContent }) => {
   const backgroundImage =
     page.fields.heroBanner &&
     page.fields.heroBanner.fields.image &&
@@ -43,22 +43,9 @@ const Page = ({ page }: { page: IPageContent }) => {
     </Layout>
   );
 };
+export default ServicePage;
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const { items } = await client.getEntries<IPageContentFields>({
-    content_type: "pageContent",
-  });
-
-  const paths = items.map((page) => {
-    return { params: { slug: page.fields.slug } };
-  });
-  return {
-    paths: paths,
-    fallback: "blocking",
-  };
-};
-export default Page;
-export const getStaticProps: GetStaticProps = async ({
+export const getServerSideProps: GetServerSideProps = async ({
   params,
   preview = false,
 }) => {
